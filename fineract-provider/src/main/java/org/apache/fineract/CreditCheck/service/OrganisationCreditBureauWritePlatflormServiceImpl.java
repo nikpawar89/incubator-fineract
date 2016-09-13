@@ -32,8 +32,7 @@ public class OrganisationCreditBureauWritePlatflormServiceImpl implements Organi
       this.context=context;
       this.orgCbRepository=orgCbRepository;
       this.cbRepository=cbRepository;
-      
-      this.fromApiJsonDeserializer=fromApiJsonDeserializer;
+       this.fromApiJsonDeserializer=fromApiJsonDeserializer;
       
     }
     

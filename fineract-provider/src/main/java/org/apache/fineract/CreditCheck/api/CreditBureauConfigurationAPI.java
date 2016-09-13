@@ -21,6 +21,7 @@ import org.apache.fineract.CreditCheck.data.CreditBureauLpMappingData;
 import org.apache.fineract.CreditCheck.data.OrganisationCreditbureauData;
 import org.apache.fineract.CreditCheck.service.CreditBureauLpMappingReadPlatformService;
 import org.apache.fineract.CreditCheck.service.CreditBureauReadPlatformService;
+import org.apache.fineract.CreditCheck.service.EquifaxCreditCheckRequest;
 import org.apache.fineract.CreditCheck.service.OrganisationCreditBureauReadPlatformService;
 import org.apache.fineract.commands.domain.CommandWrapper;
 import org.apache.fineract.commands.service.CommandWrapperBuilder;
@@ -58,6 +59,7 @@ public class CreditBureauConfigurationAPI
     private final DefaultToApiJsonSerializer<CreditBureauMasterData> toApiJsonSerializerCbm; */
     private final ApiRequestParameterHelper apiRequestParameterHelper;
     private final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService;
+    private final EquifaxCreditCheckRequest crRequest;
   
  /*   
     @Autowired
@@ -87,7 +89,8 @@ public class CreditBureauConfigurationAPI
     public CreditBureauConfigurationAPI(final PlatformSecurityContext context, final CreditBureauReadPlatformService readPlatformService, final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer,
             final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp,final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp,
             final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb,final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb,final ApiRequestParameterHelper apiRequestParameterHelper,
-            final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService)
+            final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService,
+            final EquifaxCreditCheckRequest crRequest )
     {
         this.context=context;
         this.readPlatformService=readPlatformService;
@@ -98,6 +101,7 @@ public class CreditBureauConfigurationAPI
         this.toApiJsonSerializerOrgCb=toApiJsonSerializerOrgCb;
         this.toApiJsonSerializer=toApiJsonSerializer;
         this.commandsSourceWritePlatformService=commandsSourceWritePlatformService;
+        this.crRequest=crRequest;
     }
     
     
@@ -150,6 +154,31 @@ public class CreditBureauConfigurationAPI
       
      
   }
+  
+  
+  @GET
+  @Path("/equifax")
+  @Consumes({ MediaType.APPLICATION_JSON })
+  @Produces({ MediaType.APPLICATION_JSON })
+  public void getEquifaxReport(@Context final UriInfo uriInfo)
+  {
+      this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+      
+      crRequest.processRequest();
+
+    /*  final Collection<OrganisationCreditbureauData> organisationCreditBureau = this.readPlatformServiceOrgCb.retrieveOrgCreditBureau();
+
+      final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+      return this.toApiJsonSerializerOrgCb.serialize(settings, organisationCreditBureau, this.RESPONSE_DATA_PARAMETERS);*/
+     
+ 
+      
+     
+  }
+  
+  
+  
+  
   
   @PUT
   @Path("/orgcb")
