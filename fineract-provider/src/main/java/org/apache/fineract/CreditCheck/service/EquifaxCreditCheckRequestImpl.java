@@ -222,7 +222,7 @@ public class EquifaxCreditCheckRequestImpl implements EquifaxCreditCheckRequest
 
     private static void printResponse(InquiryResponseType responseType)
                     throws JAXBException {
-            JAXBContext jc = JAXBContext.newInstance(InquiryResponseType.class);
+            JAXBContext jc = JAXBContext.newInstance(org.apache.fineract.CreditCheck.equifax.services.eport.ws.schemas._1.InquiryResponseType.class);
 
             IDAndContactType idAndContactType = responseType.getReportData()
                             .getIDAndContactInfo();
@@ -255,7 +255,7 @@ public class EquifaxCreditCheckRequestImpl implements EquifaxCreditCheckRequest
     private static void printRequest(InquiryRequestType requestType)throws JAXBException
     {
             
-            JAXBContext jc = JAXBContext.newInstance(InquiryRequestType.class);
+            JAXBContext jc = JAXBContext.newInstance(org.apache.fineract.CreditCheck.equifax.services.eport.ws.schemas._1.InquiryRequestType.class);                                                                                                                                                                                                                 
         
         System.out.println("i am here");
             
