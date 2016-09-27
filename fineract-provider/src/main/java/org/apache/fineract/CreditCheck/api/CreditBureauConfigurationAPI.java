@@ -18,6 +18,7 @@ import javax.ws.rs.core.UriInfo;
 
 import org.apache.fineract.CreditCheck.data.CreditBureauData;
 import org.apache.fineract.CreditCheck.data.CreditBureauLpMappingData;
+import org.apache.fineract.CreditCheck.data.EquifaxReportData;
 import org.apache.fineract.CreditCheck.data.OrganisationCreditbureauData;
 import org.apache.fineract.CreditCheck.service.CreditBureauLpMappingReadPlatformService;
 import org.apache.fineract.CreditCheck.service.CreditBureauReadPlatformService;
@@ -31,6 +32,7 @@ import org.apache.fineract.infrastructure.core.data.CommandProcessingResult;
 import org.apache.fineract.infrastructure.core.serialization.ApiRequestJsonSerializationSettings;
 import org.apache.fineract.infrastructure.core.serialization.DefaultToApiJsonSerializer;
 import org.apache.fineract.infrastructure.security.service.PlatformSecurityContext;
+import org.codehaus.jettison.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -52,6 +54,7 @@ public class CreditBureauConfigurationAPI
     private final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb;
     private final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp; 
     private final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb; 
+    private final DefaultToApiJsonSerializer<EquifaxReportData> toApiJsonSerializerReport; 
   /*  private final CreditBureauMasterReadPlatformService readPlatformServiceMaster;
     private final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer;  
     private final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp; 
@@ -90,7 +93,7 @@ public class CreditBureauConfigurationAPI
             final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp,final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp,
             final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb,final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb,final ApiRequestParameterHelper apiRequestParameterHelper,
             final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService,
-            final EquifaxCreditCheckRequest crRequest )
+            final EquifaxCreditCheckRequest crRequest,final DefaultToApiJsonSerializer<EquifaxReportData> toApiJsonSerializerReport )
     {
         this.context=context;
         this.readPlatformService=readPlatformService;
@@ -102,6 +105,7 @@ public class CreditBureauConfigurationAPI
         this.toApiJsonSerializer=toApiJsonSerializer;
         this.commandsSourceWritePlatformService=commandsSourceWritePlatformService;
         this.crRequest=crRequest;
+        this.toApiJsonSerializerReport=toApiJsonSerializerReport;
     }
     
     
@@ -160,21 +164,23 @@ public class CreditBureauConfigurationAPI
   @Path("/equifax")
   @Consumes({ MediaType.APPLICATION_JSON })
   @Produces({ MediaType.APPLICATION_JSON })
-  public void getEquifaxReport(@Context final UriInfo uriInfo)
+  public String getEquifaxReport(@Context final UriInfo uriInfo)
   {
       this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
       
-      crRequest.processRequest();
-
-    /*  final Collection<OrganisationCreditbureauData> organisationCreditBureau = this.readPlatformServiceOrgCb.retrieveOrgCreditBureau();
-
-      final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-      return this.toApiJsonSerializerOrgCb.serialize(settings, organisationCreditBureau, this.RESPONSE_DATA_PARAMETERS);*/
-     
- 
+     // String response=crRequest.processRequest();
       
-     
-  }
+      
+     // return response;
+
+      final EquifaxReportData creditReport = this.crRequest.processRequest();
+
+     // final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+     // return this.toApiJsonSerializerReport.serialize(settings, creditReport, this.RESPONSE_DATA_PARAMETERS);
+      
+      return this.toApiJsonSerializerReport.serialize(creditReport);
+      
+      }
   
   
   
