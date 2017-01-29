@@ -1,0 +1,191 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.fineract.infrastructure.creditbureau.equifax.services.eport.ws.schemas._1;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for OtherKeyIndType complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="OtherKeyIndType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="AgeOfOldestTrade" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="NumberOfOpenTrades" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="AllLinesEVERWritten" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AllLinesEVERWrittenIn9Months" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="AllLinesEVERWrittenIn6Months" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "OtherKeyIndType", propOrder = {
+    "ageOfOldestTrade",
+    "numberOfOpenTrades",
+    "allLinesEVERWritten",
+    "allLinesEVERWrittenIn9Months",
+    "allLinesEVERWrittenIn6Months"
+})
+public class OtherKeyIndType {
+
+    @XmlElement(name = "AgeOfOldestTrade")
+    protected String ageOfOldestTrade;
+    @XmlElement(name = "NumberOfOpenTrades", required = true)
+    protected String numberOfOpenTrades;
+    @XmlElement(name = "AllLinesEVERWritten")
+    protected String allLinesEVERWritten;
+    @XmlElement(name = "AllLinesEVERWrittenIn9Months")
+    protected String allLinesEVERWrittenIn9Months;
+    @XmlElement(name = "AllLinesEVERWrittenIn6Months")
+    protected String allLinesEVERWrittenIn6Months;
+
+    /**
+     * Gets the value of the ageOfOldestTrade property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAgeOfOldestTrade() {
+        return ageOfOldestTrade;
+    }
+
+    /**
+     * Sets the value of the ageOfOldestTrade property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAgeOfOldestTrade(String value) {
+        this.ageOfOldestTrade = value;
+    }
+
+    /**
+     * Gets the value of the numberOfOpenTrades property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNumberOfOpenTrades() {
+        return numberOfOpenTrades;
+    }
+
+    /**
+     * Sets the value of the numberOfOpenTrades property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNumberOfOpenTrades(String value) {
+        this.numberOfOpenTrades = value;
+    }
+
+    /**
+     * Gets the value of the allLinesEVERWritten property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAllLinesEVERWritten() {
+        return allLinesEVERWritten;
+    }
+
+    /**
+     * Sets the value of the allLinesEVERWritten property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAllLinesEVERWritten(String value) {
+        this.allLinesEVERWritten = value;
+    }
+
+    /**
+     * Gets the value of the allLinesEVERWrittenIn9Months property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAllLinesEVERWrittenIn9Months() {
+        return allLinesEVERWrittenIn9Months;
+    }
+
+    /**
+     * Sets the value of the allLinesEVERWrittenIn9Months property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAllLinesEVERWrittenIn9Months(String value) {
+        this.allLinesEVERWrittenIn9Months = value;
+    }
+
+    /**
+     * Gets the value of the allLinesEVERWrittenIn6Months property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAllLinesEVERWrittenIn6Months() {
+        return allLinesEVERWrittenIn6Months;
+    }
+
+    /**
+     * Sets the value of the allLinesEVERWrittenIn6Months property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAllLinesEVERWrittenIn6Months(String value) {
+        this.allLinesEVERWrittenIn6Months = value;
+    }
+
+}

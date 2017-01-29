@@ -65,28 +65,31 @@ public final class JsonCommand {
     private final String transactionId;
     private final String url;
     private final Long productId;
+    private final Long cbId;
+    private final Long ocbId;
 
     public static JsonCommand from(final String jsonCommand, final JsonElement parsedCommand, final FromJsonHelper fromApiJsonHelper,
             final String entityName, final Long resourceId, final Long subresourceId, final Long groupId, final Long clientId,
-            final Long loanId, final Long savingsId, final String transactionId, final String url, final Long productId) {
+            final Long loanId, final Long savingsId, final String transactionId, final String url, final Long productId,
+            final Long cbId,final Long ocbId) {
         return new JsonCommand(null, jsonCommand, parsedCommand, fromApiJsonHelper, entityName, resourceId, subresourceId, groupId,
-                clientId, loanId, savingsId, transactionId, url, productId);
+                clientId, loanId, savingsId, transactionId, url, productId,cbId,ocbId);
 
     }
 
     public static JsonCommand fromExistingCommand(final Long commandId, final String jsonCommand, final JsonElement parsedCommand,
             final FromJsonHelper fromApiJsonHelper, final String entityName, final Long resourceId, final Long subresourceId,
-            final String url, final Long productId) {
+            final String url, final Long productId,final Long cbId,final Long ocbId) {
         return new JsonCommand(commandId, jsonCommand, parsedCommand, fromApiJsonHelper, entityName, resourceId, subresourceId, null, null,
-                null, null, null, url, productId);
+                null, null, null, url, productId,cbId,ocbId);
     }
 
     public static JsonCommand fromExistingCommand(final Long commandId, final String jsonCommand, final JsonElement parsedCommand,
             final FromJsonHelper fromApiJsonHelper, final String entityName, final Long resourceId, final Long subresourceId,
             final Long groupId, final Long clientId, final Long loanId, final Long savingsId, final String transactionId, final String url,
-            final Long productId) {
+            final Long productId,Long cbId,final Long ocbId) {
         return new JsonCommand(commandId, jsonCommand, parsedCommand, fromApiJsonHelper, entityName, resourceId, subresourceId, groupId,
-                clientId, loanId, savingsId, transactionId, url, productId);
+                clientId, loanId, savingsId, transactionId, url, productId,cbId,ocbId);
 
     }
 
@@ -94,13 +97,13 @@ public final class JsonCommand {
         final String jsonCommand = command.fromApiJsonHelper.toJson(parsedCommand);
         return new JsonCommand(command.commandId, jsonCommand, parsedCommand, command.fromApiJsonHelper, command.entityName,
                 command.resourceId, command.subresourceId, command.groupId, command.clientId, command.loanId, command.savingsId,
-                command.transactionId, command.url, command.productId);
+                command.transactionId, command.url, command.productId,command.cbId,command.ocbId);
     }
 
     public JsonCommand(final Long commandId, final String jsonCommand, final JsonElement parsedCommand,
             final FromJsonHelper fromApiJsonHelper, final String entityName, final Long resourceId, final Long subresourceId,
             final Long groupId, final Long clientId, final Long loanId, final Long savingsId, final String transactionId, final String url,
-            final Long productId) {
+            final Long productId,final Long cbId, final Long ocbId) {
 
         this.commandId = commandId;
         this.jsonCommand = jsonCommand;
@@ -116,6 +119,16 @@ public final class JsonCommand {
         this.transactionId = transactionId;
         this.url = url;
         this.productId = productId;
+        this.cbId=cbId;
+        this.ocbId=ocbId;
+    }
+    
+    public Long getOcbId() {
+        return this.ocbId;
+    }
+    
+    public Long getCbId() {
+        return this.cbId;
     }
 
     public String json() {
