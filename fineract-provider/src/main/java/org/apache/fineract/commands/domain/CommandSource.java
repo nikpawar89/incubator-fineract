@@ -95,6 +95,12 @@ public class CommandSource extends AbstractPersistableCustom<Long> {
     
     @Column(name = "transaction_id", length = 100)
     private String transactionId;
+    
+    @Column(name="cb_id")
+    private Long creditBureauId;
+    
+    @Column(name="ocb_id")
+    private Long orgcreditBureauId;
 
     public static CommandSource fullEntryFrom(final CommandWrapper wrapper, final JsonCommand command, final AppUser maker) {
         return new CommandSource(wrapper.actionName(), wrapper.entityName(), wrapper.getHref(), command.entityId(), command.subentityId(),
@@ -116,8 +122,25 @@ public class CommandSource extends AbstractPersistableCustom<Long> {
         this.maker = maker;
         this.madeOnDate = madeOnDateTime.toDate();
         this.processingResult = CommandProcessingResultType.PROCESSED.getValue();
+    } public Long getCreditBureauId() {
+        return this.creditBureauId;
     }
 
+    
+    public void setCreditBureauId(Long creditBureauId) {
+        this.creditBureauId = creditBureauId;
+    }
+
+    
+    public Long getOrgcreditBureauId() {
+        return this.orgcreditBureauId;
+    }
+
+    
+    public void setOrgcreditBureauId(Long orgcreditBureauId) {
+        this.orgcreditBureauId = orgcreditBureauId;
+    }
+    
     public void markAsChecked(final AppUser checker, final DateTime checkedOnDate) {
         this.checker = checker;
         this.checkedOnDate = checkedOnDate.toDate();
