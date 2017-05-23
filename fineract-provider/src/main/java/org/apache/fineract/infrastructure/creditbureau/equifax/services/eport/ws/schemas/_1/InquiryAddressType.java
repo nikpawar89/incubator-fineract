@@ -25,11 +25,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for InquiryAddressType complex type.
+ * <p>
+ * Java class for InquiryAddressType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="InquiryAddressType">
@@ -91,253 +93,218 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InquiryAddressType", propOrder = {
-    "addressLine",
-    "street",
-    "locality1",
-    "locality2",
-    "city",
-    "state",
-    "postal",
-    "addressType"
-})
+@XmlType(name = "InquiryAddressType", propOrder = { "addressLine", "street", "locality1", "locality2", "city", "state",
+		"postal", "addressType" })
 public class InquiryAddressType {
 
-    @XmlElement(name = "AddressLine", required = true)
-    protected String addressLine;
-    @XmlElement(name = "Street")
-    protected String street;
-    @XmlElement(name = "Locality1")
-    protected String locality1;
-    @XmlElement(name = "Locality2")
-    protected String locality2;
-    @XmlElement(name = "City")
-    protected String city;
-    @XmlElement(name = "State", required = true)
-    @XmlSchemaType(name = "string")
-    protected StateCodeOptions state;
-    @XmlElement(name = "Postal", required = true)
-    protected String postal;
-    @XmlElement(name = "AddressType")
-    @XmlSchemaType(name = "string")
-    protected AddressCodeType addressType;
-    @XmlAttribute(name = "seq")
-    protected Integer seq;
+	@XmlElement(name = "AddressLine", required = true)
+	protected String addressLine;
+	@XmlElement(name = "Street")
+	protected String street;
+	@XmlElement(name = "Locality1")
+	protected String locality1;
+	@XmlElement(name = "Locality2")
+	protected String locality2;
+	@XmlElement(name = "City")
+	protected String city;
+	@XmlElement(name = "State", required = true)
+	@XmlSchemaType(name = "string")
+	protected StateCodeOptions state;
+	@XmlElement(name = "Postal", required = true)
+	protected String postal;
+	@XmlElement(name = "AddressType")
+	@XmlSchemaType(name = "string")
+	protected AddressCodeType addressType;
+	@XmlAttribute(name = "seq")
+	protected Integer seq;
 
-    /**
-     * Gets the value of the addressLine property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAddressLine() {
-        return addressLine;
-    }
+	/**
+	 * Gets the value of the addressLine property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAddressLine() {
+		return addressLine;
+	}
 
-    /**
-     * Sets the value of the addressLine property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAddressLine(String value) {
-        this.addressLine = value;
-    }
+	/**
+	 * Sets the value of the addressLine property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAddressLine(String value) {
+		this.addressLine = value;
+	}
 
-    /**
-     * Gets the value of the street property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStreet() {
-        return street;
-    }
+	/**
+	 * Gets the value of the street property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getStreet() {
+		return street;
+	}
 
-    /**
-     * Sets the value of the street property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStreet(String value) {
-        this.street = value;
-    }
+	/**
+	 * Sets the value of the street property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setStreet(String value) {
+		this.street = value;
+	}
 
-    /**
-     * Gets the value of the locality1 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLocality1() {
-        return locality1;
-    }
+	/**
+	 * Gets the value of the locality1 property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getLocality1() {
+		return locality1;
+	}
 
-    /**
-     * Sets the value of the locality1 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLocality1(String value) {
-        this.locality1 = value;
-    }
+	/**
+	 * Sets the value of the locality1 property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setLocality1(String value) {
+		this.locality1 = value;
+	}
 
-    /**
-     * Gets the value of the locality2 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLocality2() {
-        return locality2;
-    }
+	/**
+	 * Gets the value of the locality2 property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getLocality2() {
+		return locality2;
+	}
 
-    /**
-     * Sets the value of the locality2 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLocality2(String value) {
-        this.locality2 = value;
-    }
+	/**
+	 * Sets the value of the locality2 property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setLocality2(String value) {
+		this.locality2 = value;
+	}
 
-    /**
-     * Gets the value of the city property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCity() {
-        return city;
-    }
+	/**
+	 * Gets the value of the city property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCity() {
+		return city;
+	}
 
-    /**
-     * Sets the value of the city property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCity(String value) {
-        this.city = value;
-    }
+	/**
+	 * Sets the value of the city property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCity(String value) {
+		this.city = value;
+	}
 
-    /**
-     * Gets the value of the state property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StateCodeOptions }
-     *     
-     */
-    public StateCodeOptions getState() {
-        return state;
-    }
+	/**
+	 * Gets the value of the state property.
+	 * 
+	 * @return possible object is {@link StateCodeOptions }
+	 * 
+	 */
+	public StateCodeOptions getState() {
+		return state;
+	}
 
-    /**
-     * Sets the value of the state property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link StateCodeOptions }
-     *     
-     */
-    public void setState(StateCodeOptions value) {
-        this.state = value;
-    }
+	/**
+	 * Sets the value of the state property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link StateCodeOptions }
+	 * 
+	 */
+	public void setState(StateCodeOptions value) {
+		this.state = value;
+	}
 
-    /**
-     * Gets the value of the postal property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPostal() {
-        return postal;
-    }
+	/**
+	 * Gets the value of the postal property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPostal() {
+		return postal;
+	}
 
-    /**
-     * Sets the value of the postal property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPostal(String value) {
-        this.postal = value;
-    }
+	/**
+	 * Sets the value of the postal property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPostal(String value) {
+		this.postal = value;
+	}
 
-    /**
-     * Gets the value of the addressType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AddressCodeType }
-     *     
-     */
-    public AddressCodeType getAddressType() {
-        return addressType;
-    }
+	/**
+	 * Gets the value of the addressType property.
+	 * 
+	 * @return possible object is {@link AddressCodeType }
+	 * 
+	 */
+	public AddressCodeType getAddressType() {
+		return addressType;
+	}
 
-    /**
-     * Sets the value of the addressType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AddressCodeType }
-     *     
-     */
-    public void setAddressType(AddressCodeType value) {
-        this.addressType = value;
-    }
+	/**
+	 * Sets the value of the addressType property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link AddressCodeType }
+	 * 
+	 */
+	public void setAddressType(AddressCodeType value) {
+		this.addressType = value;
+	}
 
-    /**
-     * Gets the value of the seq property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getSeq() {
-        return seq;
-    }
+	/**
+	 * Gets the value of the seq property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getSeq() {
+		return seq;
+	}
 
-    /**
-     * Sets the value of the seq property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setSeq(Integer value) {
-        this.seq = value;
-    }
+	/**
+	 * Sets the value of the seq property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setSeq(Integer value) {
+		this.seq = value;
+	}
 
 }

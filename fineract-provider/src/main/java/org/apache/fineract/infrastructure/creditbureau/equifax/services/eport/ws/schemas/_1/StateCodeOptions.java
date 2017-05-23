@@ -21,12 +21,15 @@ package org.apache.fineract.infrastructure.creditbureau.equifax.services.eport.w
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for StateCodeOptions.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
+ * Java class for StateCodeOptions.
+ * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * <p>
+ * 
  * <pre>
  * &lt;simpleType name="StateCodeOptions">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -76,49 +79,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum StateCodeOptions {
 
-    AN,
-    AP,
-    AR,
-    AS,
-    BR,
-    CH,
-    CG,
-    DN,
-    DD,
-    DL,
-    GA,
-    GJ,
-    HR,
-    HP,
-    JK,
-    JH,
-    KA,
-    KL,
-    LD,
-    MP,
-    MH,
-    MN,
-    ML,
-    MZ,
-    NL,
-    OR,
-    PY,
-    PB,
-    RJ,
-    SK,
-    TN,
-    TR,
-    UP,
-    UL,
-    WB,
-    TG;
+	AN, AP, AR, AS, BR, CH, CG, DN, DD, DL, GA, GJ, HR, HP, JK, JH, KA, KL, LD, MP, MH, MN, ML, MZ, NL, OR, PY, PB, RJ, SK, TN, TR, UP, UL, WB, TG;
 
-    public String value() {
-        return name();
-    }
+	public String value() {
+		return name();
+	}
 
-    public static StateCodeOptions fromValue(String v) {
-        return valueOf(v);
-    }
+	public static StateCodeOptions fromValue(String v) {
+		return valueOf(v);
+	}
 
 }

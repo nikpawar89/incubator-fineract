@@ -20,10 +20,11 @@ package org.apache.fineract.infrastructure.creditbureau.service;
 
 import org.apache.fineract.infrastructure.creditbureau.data.EquifaxReportData;
 
-public interface EquifaxCreditCheckRequest 
-{
-    //Collection<EquifaxReportData> processRequest();
-    
-    EquifaxReportData processRequest();
+public interface EquifaxCreditCheckRequest {
+	// Collection<EquifaxReportData> processRequest();
+
+	// EquifaxReportData processRequest();
+
+	EquifaxReportData processRequest(long loanAccountNumber);
 
 }

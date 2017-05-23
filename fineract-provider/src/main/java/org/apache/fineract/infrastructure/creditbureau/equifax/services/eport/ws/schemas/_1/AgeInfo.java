@@ -26,11 +26,13 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
 /**
- * <p>Java class for AgeInfo complex type.
+ * <p>
+ * Java class for AgeInfo complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="AgeInfo">
@@ -48,89 +50,78 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AgeInfo", propOrder = {
-    "age"
-})
+@XmlType(name = "AgeInfo", propOrder = { "age" })
 public class AgeInfo {
 
-    @XmlElement(name = "Age", required = true)
-    protected String age;
-    @XmlAttribute(name = "seq")
-    protected Integer seq;
-    @XmlAttribute(name = "ReportedDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar reportedDate;
+	@XmlElement(name = "Age", required = true)
+	protected String age;
+	@XmlAttribute(name = "seq")
+	protected Integer seq;
+	@XmlAttribute(name = "ReportedDate")
+	@XmlSchemaType(name = "date")
+	protected XMLGregorianCalendar reportedDate;
 
-    /**
-     * Gets the value of the age property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAge() {
-        return age;
-    }
+	/**
+	 * Gets the value of the age property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAge() {
+		return age;
+	}
 
-    /**
-     * Sets the value of the age property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAge(String value) {
-        this.age = value;
-    }
+	/**
+	 * Sets the value of the age property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAge(String value) {
+		this.age = value;
+	}
 
-    /**
-     * Gets the value of the seq property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getSeq() {
-        return seq;
-    }
+	/**
+	 * Gets the value of the seq property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getSeq() {
+		return seq;
+	}
 
-    /**
-     * Sets the value of the seq property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setSeq(Integer value) {
-        this.seq = value;
-    }
+	/**
+	 * Sets the value of the seq property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setSeq(Integer value) {
+		this.seq = value;
+	}
 
-    /**
-     * Gets the value of the reportedDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getReportedDate() {
-        return reportedDate;
-    }
+	/**
+	 * Gets the value of the reportedDate property.
+	 * 
+	 * @return possible object is {@link XMLGregorianCalendar }
+	 * 
+	 */
+	public XMLGregorianCalendar getReportedDate() {
+		return reportedDate;
+	}
 
-    /**
-     * Sets the value of the reportedDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setReportedDate(XMLGregorianCalendar value) {
-        this.reportedDate = value;
-    }
+	/**
+	 * Sets the value of the reportedDate property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link XMLGregorianCalendar }
+	 * 
+	 */
+	public void setReportedDate(XMLGregorianCalendar value) {
+		this.reportedDate = value;
+	}
 
 }

@@ -24,11 +24,13 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for MonthlyDetailType complex type.
+ * <p>
+ * Java class for MonthlyDetailType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="MonthlyDetailType">
@@ -48,116 +50,100 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MonthlyDetailType", propOrder = {
-    "paymentStatus",
-    "suitFiledStatus",
-    "assetClassificationStatus"
-})
+@XmlType(name = "MonthlyDetailType", propOrder = { "paymentStatus", "suitFiledStatus", "assetClassificationStatus" })
 public class MonthlyDetailType {
 
-    @XmlElement(name = "PaymentStatus")
-    protected String paymentStatus;
-    @XmlElement(name = "SuitFiledStatus")
-    protected String suitFiledStatus;
-    @XmlElement(name = "AssetClassificationStatus")
-    protected String assetClassificationStatus;
-    @XmlAttribute(name = "key")
-    protected String key;
+	@XmlElement(name = "PaymentStatus")
+	protected String paymentStatus;
+	@XmlElement(name = "SuitFiledStatus")
+	protected String suitFiledStatus;
+	@XmlElement(name = "AssetClassificationStatus")
+	protected String assetClassificationStatus;
+	@XmlAttribute(name = "key")
+	protected String key;
 
-    /**
-     * Gets the value of the paymentStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
+	/**
+	 * Gets the value of the paymentStatus property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
 
-    /**
-     * Sets the value of the paymentStatus property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPaymentStatus(String value) {
-        this.paymentStatus = value;
-    }
+	/**
+	 * Sets the value of the paymentStatus property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPaymentStatus(String value) {
+		this.paymentStatus = value;
+	}
 
-    /**
-     * Gets the value of the suitFiledStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSuitFiledStatus() {
-        return suitFiledStatus;
-    }
+	/**
+	 * Gets the value of the suitFiledStatus property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getSuitFiledStatus() {
+		return suitFiledStatus;
+	}
 
-    /**
-     * Sets the value of the suitFiledStatus property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSuitFiledStatus(String value) {
-        this.suitFiledStatus = value;
-    }
+	/**
+	 * Sets the value of the suitFiledStatus property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setSuitFiledStatus(String value) {
+		this.suitFiledStatus = value;
+	}
 
-    /**
-     * Gets the value of the assetClassificationStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAssetClassificationStatus() {
-        return assetClassificationStatus;
-    }
+	/**
+	 * Gets the value of the assetClassificationStatus property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAssetClassificationStatus() {
+		return assetClassificationStatus;
+	}
 
-    /**
-     * Sets the value of the assetClassificationStatus property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAssetClassificationStatus(String value) {
-        this.assetClassificationStatus = value;
-    }
+	/**
+	 * Sets the value of the assetClassificationStatus property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAssetClassificationStatus(String value) {
+		this.assetClassificationStatus = value;
+	}
 
-    /**
-     * Gets the value of the key property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getKey() {
-        return key;
-    }
+	/**
+	 * Gets the value of the key property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getKey() {
+		return key;
+	}
 
-    /**
-     * Sets the value of the key property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setKey(String value) {
-        this.key = value;
-    }
+	/**
+	 * Sets the value of the key property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setKey(String value) {
+		this.key = value;
+	}
 
 }

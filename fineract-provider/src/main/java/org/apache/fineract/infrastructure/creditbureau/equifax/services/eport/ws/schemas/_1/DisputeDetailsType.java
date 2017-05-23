@@ -26,13 +26,15 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
 /**
  * Individual Disputes
  * 
- * <p>Java class for DisputeDetailsType complex type.
+ * <p>
+ * Java class for DisputeDetailsType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="DisputeDetailsType">
@@ -53,144 +55,124 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DisputeDetailsType", propOrder = {
-    "accNum",
-    "disputeComments",
-    "status",
-    "resolvedDate"
-})
+@XmlType(name = "DisputeDetailsType", propOrder = { "accNum", "disputeComments", "status", "resolvedDate" })
 public class DisputeDetailsType {
 
-    @XmlElement(name = "AccNum")
-    protected String accNum;
-    @XmlElement(name = "DisputeComments", required = true)
-    protected String disputeComments;
-    @XmlElement(name = "Status", required = true)
-    protected String status;
-    @XmlElement(name = "ResolvedDate")
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar resolvedDate;
-    @XmlAttribute(name = "type")
-    protected String type;
+	@XmlElement(name = "AccNum")
+	protected String accNum;
+	@XmlElement(name = "DisputeComments", required = true)
+	protected String disputeComments;
+	@XmlElement(name = "Status", required = true)
+	protected String status;
+	@XmlElement(name = "ResolvedDate")
+	@XmlSchemaType(name = "date")
+	protected XMLGregorianCalendar resolvedDate;
+	@XmlAttribute(name = "type")
+	protected String type;
 
-    /**
-     * Gets the value of the accNum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAccNum() {
-        return accNum;
-    }
+	/**
+	 * Gets the value of the accNum property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAccNum() {
+		return accNum;
+	}
 
-    /**
-     * Sets the value of the accNum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAccNum(String value) {
-        this.accNum = value;
-    }
+	/**
+	 * Sets the value of the accNum property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAccNum(String value) {
+		this.accNum = value;
+	}
 
-    /**
-     * Gets the value of the disputeComments property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDisputeComments() {
-        return disputeComments;
-    }
+	/**
+	 * Gets the value of the disputeComments property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDisputeComments() {
+		return disputeComments;
+	}
 
-    /**
-     * Sets the value of the disputeComments property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDisputeComments(String value) {
-        this.disputeComments = value;
-    }
+	/**
+	 * Sets the value of the disputeComments property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDisputeComments(String value) {
+		this.disputeComments = value;
+	}
 
-    /**
-     * Gets the value of the status property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStatus() {
-        return status;
-    }
+	/**
+	 * Gets the value of the status property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getStatus() {
+		return status;
+	}
 
-    /**
-     * Sets the value of the status property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStatus(String value) {
-        this.status = value;
-    }
+	/**
+	 * Sets the value of the status property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setStatus(String value) {
+		this.status = value;
+	}
 
-    /**
-     * Gets the value of the resolvedDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getResolvedDate() {
-        return resolvedDate;
-    }
+	/**
+	 * Gets the value of the resolvedDate property.
+	 * 
+	 * @return possible object is {@link XMLGregorianCalendar }
+	 * 
+	 */
+	public XMLGregorianCalendar getResolvedDate() {
+		return resolvedDate;
+	}
 
-    /**
-     * Sets the value of the resolvedDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setResolvedDate(XMLGregorianCalendar value) {
-        this.resolvedDate = value;
-    }
+	/**
+	 * Sets the value of the resolvedDate property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link XMLGregorianCalendar }
+	 * 
+	 */
+	public void setResolvedDate(XMLGregorianCalendar value) {
+		this.resolvedDate = value;
+	}
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getType() {
-        return type;
-    }
+	/**
+	 * Gets the value of the type property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getType() {
+		return type;
+	}
 
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setType(String value) {
-        this.type = value;
-    }
+	/**
+	 * Sets the value of the type property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setType(String value) {
+		this.type = value;
+	}
 
 }

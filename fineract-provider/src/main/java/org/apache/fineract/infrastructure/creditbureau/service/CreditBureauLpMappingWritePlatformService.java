@@ -21,12 +21,10 @@ package org.apache.fineract.infrastructure.creditbureau.service;
 import org.apache.fineract.infrastructure.core.api.JsonCommand;
 import org.apache.fineract.infrastructure.core.data.CommandProcessingResult;
 
-public interface CreditBureauLpMappingWritePlatformService{
-    
-    CommandProcessingResult addCbLpMapping(Long cb_id,JsonCommand command);
-    
-    CommandProcessingResult updateCreditBureauLoanProductMapping(JsonCommand command);
-    
-    
+public interface CreditBureauLpMappingWritePlatformService {
+
+	CommandProcessingResult addCbLpMapping(Long cb_id, JsonCommand command);
+
+	CommandProcessingResult updateCreditBureauLoanProductMapping(JsonCommand command);
 
 }

@@ -24,13 +24,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * For CCR AccountSummary Microfinance Implementation
  * 
- * <p>Java class for MicrofinanceType complex type.
+ * <p>
+ * Java class for MicrofinanceType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="MicrofinanceType">
@@ -52,171 +54,147 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MicrofinanceType", propOrder = {
-    "numberofOpenAccounts",
-    "numberofPastDueAccounts",
-    "totalOutstandingBalance",
-    "recentAccount",
-    "installmentAmount",
-    "totalPastDueAmount"
-})
+@XmlType(name = "MicrofinanceType", propOrder = { "numberofOpenAccounts", "numberofPastDueAccounts",
+		"totalOutstandingBalance", "recentAccount", "installmentAmount", "totalPastDueAmount" })
 public class MicrofinanceType {
 
-    @XmlElement(name = "NumberofOpenAccounts")
-    protected Integer numberofOpenAccounts;
-    @XmlElement(name = "NumberofPastDueAccounts")
-    protected Integer numberofPastDueAccounts;
-    @XmlElement(name = "TotalOutstandingBalance")
-    protected BigDecimal totalOutstandingBalance;
-    @XmlElement(name = "RecentAccount")
-    protected String recentAccount;
-    @XmlElement(name = "InstallmentAmount")
-    protected BigDecimal installmentAmount;
-    @XmlElement(name = "TotalPastDueAmount")
-    protected BigDecimal totalPastDueAmount;
+	@XmlElement(name = "NumberofOpenAccounts")
+	protected Integer numberofOpenAccounts;
+	@XmlElement(name = "NumberofPastDueAccounts")
+	protected Integer numberofPastDueAccounts;
+	@XmlElement(name = "TotalOutstandingBalance")
+	protected BigDecimal totalOutstandingBalance;
+	@XmlElement(name = "RecentAccount")
+	protected String recentAccount;
+	@XmlElement(name = "InstallmentAmount")
+	protected BigDecimal installmentAmount;
+	@XmlElement(name = "TotalPastDueAmount")
+	protected BigDecimal totalPastDueAmount;
 
-    /**
-     * Gets the value of the numberofOpenAccounts property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getNumberofOpenAccounts() {
-        return numberofOpenAccounts;
-    }
+	/**
+	 * Gets the value of the numberofOpenAccounts property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getNumberofOpenAccounts() {
+		return numberofOpenAccounts;
+	}
 
-    /**
-     * Sets the value of the numberofOpenAccounts property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setNumberofOpenAccounts(Integer value) {
-        this.numberofOpenAccounts = value;
-    }
+	/**
+	 * Sets the value of the numberofOpenAccounts property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setNumberofOpenAccounts(Integer value) {
+		this.numberofOpenAccounts = value;
+	}
 
-    /**
-     * Gets the value of the numberofPastDueAccounts property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getNumberofPastDueAccounts() {
-        return numberofPastDueAccounts;
-    }
+	/**
+	 * Gets the value of the numberofPastDueAccounts property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getNumberofPastDueAccounts() {
+		return numberofPastDueAccounts;
+	}
 
-    /**
-     * Sets the value of the numberofPastDueAccounts property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setNumberofPastDueAccounts(Integer value) {
-        this.numberofPastDueAccounts = value;
-    }
+	/**
+	 * Sets the value of the numberofPastDueAccounts property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setNumberofPastDueAccounts(Integer value) {
+		this.numberofPastDueAccounts = value;
+	}
 
-    /**
-     * Gets the value of the totalOutstandingBalance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getTotalOutstandingBalance() {
-        return totalOutstandingBalance;
-    }
+	/**
+	 * Gets the value of the totalOutstandingBalance property.
+	 * 
+	 * @return possible object is {@link BigDecimal }
+	 * 
+	 */
+	public BigDecimal getTotalOutstandingBalance() {
+		return totalOutstandingBalance;
+	}
 
-    /**
-     * Sets the value of the totalOutstandingBalance property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setTotalOutstandingBalance(BigDecimal value) {
-        this.totalOutstandingBalance = value;
-    }
+	/**
+	 * Sets the value of the totalOutstandingBalance property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigDecimal }
+	 * 
+	 */
+	public void setTotalOutstandingBalance(BigDecimal value) {
+		this.totalOutstandingBalance = value;
+	}
 
-    /**
-     * Gets the value of the recentAccount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRecentAccount() {
-        return recentAccount;
-    }
+	/**
+	 * Gets the value of the recentAccount property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRecentAccount() {
+		return recentAccount;
+	}
 
-    /**
-     * Sets the value of the recentAccount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRecentAccount(String value) {
-        this.recentAccount = value;
-    }
+	/**
+	 * Sets the value of the recentAccount property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRecentAccount(String value) {
+		this.recentAccount = value;
+	}
 
-    /**
-     * Gets the value of the installmentAmount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getInstallmentAmount() {
-        return installmentAmount;
-    }
+	/**
+	 * Gets the value of the installmentAmount property.
+	 * 
+	 * @return possible object is {@link BigDecimal }
+	 * 
+	 */
+	public BigDecimal getInstallmentAmount() {
+		return installmentAmount;
+	}
 
-    /**
-     * Sets the value of the installmentAmount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setInstallmentAmount(BigDecimal value) {
-        this.installmentAmount = value;
-    }
+	/**
+	 * Sets the value of the installmentAmount property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigDecimal }
+	 * 
+	 */
+	public void setInstallmentAmount(BigDecimal value) {
+		this.installmentAmount = value;
+	}
 
-    /**
-     * Gets the value of the totalPastDueAmount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getTotalPastDueAmount() {
-        return totalPastDueAmount;
-    }
+	/**
+	 * Gets the value of the totalPastDueAmount property.
+	 * 
+	 * @return possible object is {@link BigDecimal }
+	 * 
+	 */
+	public BigDecimal getTotalPastDueAmount() {
+		return totalPastDueAmount;
+	}
 
-    /**
-     * Sets the value of the totalPastDueAmount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setTotalPastDueAmount(BigDecimal value) {
-        this.totalPastDueAmount = value;
-    }
+	/**
+	 * Sets the value of the totalPastDueAmount property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigDecimal }
+	 * 
+	 */
+	public void setTotalPastDueAmount(BigDecimal value) {
+		this.totalPastDueAmount = value;
+	}
 
 }

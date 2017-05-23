@@ -24,11 +24,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for InquiryRequestType complex type.
+ * <p>
+ * Java class for InquiryRequestType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="InquiryRequestType">
@@ -48,118 +50,102 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InquiryRequestType", propOrder = {
-    "requestHeader",
-    "requestAccountDetails",
-    "inquiryCommonAccountDetails",
-    "requestBody"
-})
+@XmlType(name = "InquiryRequestType", propOrder = { "requestHeader", "requestAccountDetails",
+		"inquiryCommonAccountDetails", "requestBody" })
 @XmlRootElement(name = "REQUEST")
 public class InquiryRequestType {
 
-    @XmlElement(name = "RequestHeader", required = true)
-    protected RequestHeaderType requestHeader;
-    @XmlElement(name = "RequestAccountDetails")
-    protected AccountInputType requestAccountDetails;
-    @XmlElement(name = "InquiryCommonAccountDetails")
-    protected InquiryCommonAccountDetailsType inquiryCommonAccountDetails;
-    @XmlElement(name = "RequestBody", required = true)
-    protected RequestBodyType requestBody;
+	@XmlElement(name = "RequestHeader", required = true)
+	protected RequestHeaderType requestHeader;
+	@XmlElement(name = "RequestAccountDetails")
+	protected AccountInputType requestAccountDetails;
+	@XmlElement(name = "InquiryCommonAccountDetails")
+	protected InquiryCommonAccountDetailsType inquiryCommonAccountDetails;
+	@XmlElement(name = "RequestBody", required = true)
+	protected RequestBodyType requestBody;
 
-    /**
-     * Gets the value of the requestHeader property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RequestHeaderType }
-     *     
-     */
-    public RequestHeaderType getRequestHeader() {
-        return requestHeader;
-    }
+	/**
+	 * Gets the value of the requestHeader property.
+	 * 
+	 * @return possible object is {@link RequestHeaderType }
+	 * 
+	 */
+	public RequestHeaderType getRequestHeader() {
+		return requestHeader;
+	}
 
-    /**
-     * Sets the value of the requestHeader property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RequestHeaderType }
-     *     
-     */
-    public void setRequestHeader(RequestHeaderType value) {
-        this.requestHeader = value;
-    }
+	/**
+	 * Sets the value of the requestHeader property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link RequestHeaderType }
+	 * 
+	 */
+	public void setRequestHeader(RequestHeaderType value) {
+		this.requestHeader = value;
+	}
 
-    /**
-     * Gets the value of the requestAccountDetails property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AccountInputType }
-     *     
-     */
-    public AccountInputType getRequestAccountDetails() {
-        return requestAccountDetails;
-    }
+	/**
+	 * Gets the value of the requestAccountDetails property.
+	 * 
+	 * @return possible object is {@link AccountInputType }
+	 * 
+	 */
+	public AccountInputType getRequestAccountDetails() {
+		return requestAccountDetails;
+	}
 
-    /**
-     * Sets the value of the requestAccountDetails property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AccountInputType }
-     *     
-     */
-    public void setRequestAccountDetails(AccountInputType value) {
-        this.requestAccountDetails = value;
-    }
+	/**
+	 * Sets the value of the requestAccountDetails property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link AccountInputType }
+	 * 
+	 */
+	public void setRequestAccountDetails(AccountInputType value) {
+		this.requestAccountDetails = value;
+	}
 
-    /**
-     * Gets the value of the inquiryCommonAccountDetails property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InquiryCommonAccountDetailsType }
-     *     
-     */
-    public InquiryCommonAccountDetailsType getInquiryCommonAccountDetails() {
-        return inquiryCommonAccountDetails;
-    }
+	/**
+	 * Gets the value of the inquiryCommonAccountDetails property.
+	 * 
+	 * @return possible object is {@link InquiryCommonAccountDetailsType }
+	 * 
+	 */
+	public InquiryCommonAccountDetailsType getInquiryCommonAccountDetails() {
+		return inquiryCommonAccountDetails;
+	}
 
-    /**
-     * Sets the value of the inquiryCommonAccountDetails property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InquiryCommonAccountDetailsType }
-     *     
-     */
-    public void setInquiryCommonAccountDetails(InquiryCommonAccountDetailsType value) {
-        this.inquiryCommonAccountDetails = value;
-    }
+	/**
+	 * Sets the value of the inquiryCommonAccountDetails property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link InquiryCommonAccountDetailsType }
+	 * 
+	 */
+	public void setInquiryCommonAccountDetails(InquiryCommonAccountDetailsType value) {
+		this.inquiryCommonAccountDetails = value;
+	}
 
-    /**
-     * Gets the value of the requestBody property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RequestBodyType }
-     *     
-     */
-    public RequestBodyType getRequestBody() {
-        return requestBody;
-    }
+	/**
+	 * Gets the value of the requestBody property.
+	 * 
+	 * @return possible object is {@link RequestBodyType }
+	 * 
+	 */
+	public RequestBodyType getRequestBody() {
+		return requestBody;
+	}
 
-    /**
-     * Sets the value of the requestBody property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RequestBodyType }
-     *     
-     */
-    public void setRequestBody(RequestBodyType value) {
-        this.requestBody = value;
-    }
+	/**
+	 * Sets the value of the requestBody property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link RequestBodyType }
+	 * 
+	 */
+	public void setRequestBody(RequestBodyType value) {
+		this.requestBody = value;
+	}
 
 }

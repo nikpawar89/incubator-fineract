@@ -23,11 +23,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for RelationInfoType complex type.
+ * <p>
+ * Java class for RelationInfoType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="RelationInfoType">
@@ -45,63 +47,54 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RelationInfoType", propOrder = {
-    "name",
-    "relationType"
-})
+@XmlType(name = "RelationInfoType", propOrder = { "name", "relationType" })
 public class RelationInfoType {
 
-    @XmlElement(name = "Name")
-    protected String name;
-    @XmlElement(name = "RelationType")
-    protected String relationType;
+	@XmlElement(name = "Name")
+	protected String name;
+	@XmlElement(name = "RelationType")
+	protected String relationType;
 
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
+	/**
+	 * Gets the value of the name property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
-    }
+	/**
+	 * Sets the value of the name property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setName(String value) {
+		this.name = value;
+	}
 
-    /**
-     * Gets the value of the relationType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRelationType() {
-        return relationType;
-    }
+	/**
+	 * Gets the value of the relationType property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getRelationType() {
+		return relationType;
+	}
 
-    /**
-     * Sets the value of the relationType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRelationType(String value) {
-        this.relationType = value;
-    }
+	/**
+	 * Sets the value of the relationType property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setRelationType(String value) {
+		this.relationType = value;
+	}
 
 }

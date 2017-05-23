@@ -23,11 +23,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for AccountStatusType complex type.
+ * <p>
+ * Java class for AccountStatusType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="AccountStatusType">
@@ -45,63 +47,54 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AccountStatusType", propOrder = {
-    "statusCode",
-    "description"
-})
+@XmlType(name = "AccountStatusType", propOrder = { "statusCode", "description" })
 public class AccountStatusType {
 
-    @XmlElement(name = "StatusCode")
-    protected String statusCode;
-    @XmlElement(name = "Description")
-    protected String description;
+	@XmlElement(name = "StatusCode")
+	protected String statusCode;
+	@XmlElement(name = "Description")
+	protected String description;
 
-    /**
-     * Gets the value of the statusCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStatusCode() {
-        return statusCode;
-    }
+	/**
+	 * Gets the value of the statusCode property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getStatusCode() {
+		return statusCode;
+	}
 
-    /**
-     * Sets the value of the statusCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStatusCode(String value) {
-        this.statusCode = value;
-    }
+	/**
+	 * Sets the value of the statusCode property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setStatusCode(String value) {
+		this.statusCode = value;
+	}
 
-    /**
-     * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * Gets the value of the description property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDescription() {
+		return description;
+	}
 
-    /**
-     * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDescription(String value) {
-        this.description = value;
-    }
+	/**
+	 * Sets the value of the description property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDescription(String value) {
+		this.description = value;
+	}
 
 }

@@ -18,9 +18,8 @@
  */
 package org.apache.fineract.infrastructure.creditbureau.service;
 
-
 public interface CreditBureauRouterService {
-    
-    void routeRequest(Long cbid);
+
+	void routeRequest(Long cbid);
 
 }

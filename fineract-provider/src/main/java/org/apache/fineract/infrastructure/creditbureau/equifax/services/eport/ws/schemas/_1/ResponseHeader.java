@@ -22,11 +22,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for responseHeader complex type.
+ * <p>
+ * Java class for responseHeader complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="responseHeader">
@@ -43,35 +45,30 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "responseHeader", propOrder = {
-    "custRefField"
-})
+@XmlType(name = "responseHeader", propOrder = { "custRefField" })
 public class ResponseHeader {
 
-    protected String custRefField;
+	protected String custRefField;
 
-    /**
-     * Gets the value of the custRefField property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCustRefField() {
-        return custRefField;
-    }
+	/**
+	 * Gets the value of the custRefField property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCustRefField() {
+		return custRefField;
+	}
 
-    /**
-     * Sets the value of the custRefField property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCustRefField(String value) {
-        this.custRefField = value;
-    }
+	/**
+	 * Sets the value of the custRefField property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCustRefField(String value) {
+		this.custRefField = value;
+	}
 
 }

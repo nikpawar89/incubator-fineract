@@ -25,11 +25,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for InquiryCommonInputAddressType complex type.
+ * <p>
+ * Java class for InquiryCommonInputAddressType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="InquiryCommonInputAddressType">
@@ -46,41 +48,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InquiryCommonInputAddressType", propOrder = {
-    "inquiryAddress"
-})
+@XmlType(name = "InquiryCommonInputAddressType", propOrder = { "inquiryAddress" })
 public class InquiryCommonInputAddressType {
 
-    @XmlElement(name = "InquiryAddress")
-    protected List<InquiryAddressType> inquiryAddress;
+	@XmlElement(name = "InquiryAddress")
+	protected List<InquiryAddressType> inquiryAddress;
 
-    /**
-     * Gets the value of the inquiryAddress property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the inquiryAddress property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getInquiryAddress().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link InquiryAddressType }
-     * 
-     * 
-     */
-    public List<InquiryAddressType> getInquiryAddress() {
-        if (inquiryAddress == null) {
-            inquiryAddress = new ArrayList<InquiryAddressType>();
-        }
-        return this.inquiryAddress;
-    }
+	/**
+	 * Gets the value of the inquiryAddress property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the inquiryAddress property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getInquiryAddress().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link InquiryAddressType }
+	 * 
+	 * 
+	 */
+	public List<InquiryAddressType> getInquiryAddress() {
+		if (inquiryAddress == null) {
+			inquiryAddress = new ArrayList<InquiryAddressType>();
+		}
+		return this.inquiryAddress;
+	}
 
 }

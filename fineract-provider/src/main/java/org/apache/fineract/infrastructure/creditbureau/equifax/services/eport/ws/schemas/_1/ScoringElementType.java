@@ -24,13 +24,15 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * For ERS2.0 Implementation
  * 
- * <p>Java class for ScoringElementType complex type.
+ * <p>
+ * Java class for ScoringElementType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="ScoringElementType">
@@ -49,115 +51,100 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ScoringElementType", propOrder = {
-    "code",
-    "description"
-})
+@XmlType(name = "ScoringElementType", propOrder = { "code", "description" })
 public class ScoringElementType {
 
-    @XmlElement(name = "Code")
-    protected String code;
-    @XmlElement(name = "Description")
-    protected String description;
-    @XmlAttribute(name = "seq")
-    protected Integer seq;
-    @XmlAttribute(name = "type")
-    protected String type;
+	@XmlElement(name = "Code")
+	protected String code;
+	@XmlElement(name = "Description")
+	protected String description;
+	@XmlAttribute(name = "seq")
+	protected Integer seq;
+	@XmlAttribute(name = "type")
+	protected String type;
 
-    /**
-     * Gets the value of the code property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCode() {
-        return code;
-    }
+	/**
+	 * Gets the value of the code property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCode() {
+		return code;
+	}
 
-    /**
-     * Sets the value of the code property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCode(String value) {
-        this.code = value;
-    }
+	/**
+	 * Sets the value of the code property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCode(String value) {
+		this.code = value;
+	}
 
-    /**
-     * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * Gets the value of the description property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDescription() {
+		return description;
+	}
 
-    /**
-     * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDescription(String value) {
-        this.description = value;
-    }
+	/**
+	 * Sets the value of the description property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDescription(String value) {
+		this.description = value;
+	}
 
-    /**
-     * Gets the value of the seq property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getSeq() {
-        return seq;
-    }
+	/**
+	 * Gets the value of the seq property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getSeq() {
+		return seq;
+	}
 
-    /**
-     * Sets the value of the seq property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setSeq(Integer value) {
-        this.seq = value;
-    }
+	/**
+	 * Sets the value of the seq property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setSeq(Integer value) {
+		this.seq = value;
+	}
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getType() {
-        return type;
-    }
+	/**
+	 * Gets the value of the type property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getType() {
+		return type;
+	}
 
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setType(String value) {
-        this.type = value;
-    }
+	/**
+	 * Sets the value of the type property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setType(String value) {
+		this.type = value;
+	}
 
 }

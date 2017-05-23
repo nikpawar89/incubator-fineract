@@ -27,21 +27,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@CommandType(entity="OrgCreditBureau",action="CREATE")
-public class AddOrgCBCommandHandler implements NewCommandSourceHandler
-{
+@CommandType(entity = "OrgCreditBureau", action = "CREATE")
+public class AddOrgCBCommandHandler implements NewCommandSourceHandler {
 
-private final OrganisationCreditBureauWritePlatflormService writePlatformService;
-    
-    @Autowired
-    public AddOrgCBCommandHandler(final OrganisationCreditBureauWritePlatflormService writePlatformService)
-    {
-        this.writePlatformService = writePlatformService;
-    }
+	private final OrganisationCreditBureauWritePlatflormService writePlatformService;
 
-    @Override
-    public CommandProcessingResult processCommand(JsonCommand command) {
-        
-        return this.writePlatformService.addOrgCreditBureau(command.getOcbId(),command);
-    }
+	@Autowired
+	public AddOrgCBCommandHandler(final OrganisationCreditBureauWritePlatflormService writePlatformService) {
+		this.writePlatformService = writePlatformService;
+	}
+
+	@Override
+	public CommandProcessingResult processCommand(JsonCommand command) {
+
+		return this.writePlatformService.addOrgCreditBureau(command.getOcbId(), command);
+	}
 }

@@ -29,25 +29,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @CommandType(entity = "CB_LP_Mapping", action = "UPDATE")
-public class UpdateCbLpMappingCommandHandler implements NewCommandSourceHandler
-{
+public class UpdateCbLpMappingCommandHandler implements NewCommandSourceHandler {
 
-    private final CreditBureauLpMappingWritePlatformService writePlatformService;
-    
-    
-    @Autowired
-    public UpdateCbLpMappingCommandHandler(final CreditBureauLpMappingWritePlatformService writePlatformService) {
-        
-        this.writePlatformService = writePlatformService;
-    }
-    
-   
-    
-    @Transactional
-    @Override
-    public CommandProcessingResult processCommand(final JsonCommand command) {
-       
-        return this.writePlatformService.updateCreditBureauLoanProductMapping(command);
-    }
+	private final CreditBureauLpMappingWritePlatformService writePlatformService;
+
+	@Autowired
+	public UpdateCbLpMappingCommandHandler(final CreditBureauLpMappingWritePlatformService writePlatformService) {
+
+		this.writePlatformService = writePlatformService;
+	}
+
+	@Transactional
+	@Override
+	public CommandProcessingResult processCommand(final JsonCommand command) {
+
+		return this.writePlatformService.updateCreditBureauLoanProductMapping(command);
+	}
 
 }

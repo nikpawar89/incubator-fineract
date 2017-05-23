@@ -23,15 +23,17 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * 
- *             Represents a generic Error message
- *          
+ * Represents a generic Error message
  * 
- * <p>Java class for ErrorType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * Java class for ErrorType complex type.
+ * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="ErrorType">
@@ -50,90 +52,77 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ErrorType", propOrder = {
-    "errorCode",
-    "errorMsg",
-    "details"
-})
+@XmlType(name = "ErrorType", propOrder = { "errorCode", "errorMsg", "details" })
 public class ErrorType {
 
-    @XmlElement(name = "ErrorCode", required = true)
-    protected String errorCode;
-    @XmlElement(name = "ErrorMsg")
-    protected String errorMsg;
-    @XmlElement(name = "Details")
-    protected String details;
+	@XmlElement(name = "ErrorCode", required = true)
+	protected String errorCode;
+	@XmlElement(name = "ErrorMsg")
+	protected String errorMsg;
+	@XmlElement(name = "Details")
+	protected String details;
 
-    /**
-     * Gets the value of the errorCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getErrorCode() {
-        return errorCode;
-    }
+	/**
+	 * Gets the value of the errorCode property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getErrorCode() {
+		return errorCode;
+	}
 
-    /**
-     * Sets the value of the errorCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setErrorCode(String value) {
-        this.errorCode = value;
-    }
+	/**
+	 * Sets the value of the errorCode property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setErrorCode(String value) {
+		this.errorCode = value;
+	}
 
-    /**
-     * Gets the value of the errorMsg property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getErrorMsg() {
-        return errorMsg;
-    }
+	/**
+	 * Gets the value of the errorMsg property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getErrorMsg() {
+		return errorMsg;
+	}
 
-    /**
-     * Sets the value of the errorMsg property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setErrorMsg(String value) {
-        this.errorMsg = value;
-    }
+	/**
+	 * Sets the value of the errorMsg property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setErrorMsg(String value) {
+		this.errorMsg = value;
+	}
 
-    /**
-     * Gets the value of the details property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDetails() {
-        return details;
-    }
+	/**
+	 * Gets the value of the details property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getDetails() {
+		return details;
+	}
 
-    /**
-     * Sets the value of the details property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDetails(String value) {
-        this.details = value;
-    }
+	/**
+	 * Sets the value of the details property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setDetails(String value) {
+		this.details = value;
+	}
 
 }

@@ -24,13 +24,11 @@ import org.apache.fineract.infrastructure.creditbureau.data.CreditBureauLpMappin
 
 public interface CreditBureauLpMappingReadPlatformService {
 
-    Collection<CreditBureauLpMappingData> readCreditBureauLpMapping();
-    
-   Collection<CreditBureauLpMappingData> fetchLoanProducts();
-    
-    //CreditBureauLpMappingData findCreditLpMapping(final Long cbid);
-   
-  // Collection<CreditBureauLpMappingData> findCreditLpMapping(final Long cbid);
-    
-    //Collection<CreditBureauProduct> findCreditBureauProductByCreditBureau(final Long lpId);
+	Collection<CreditBureauLpMappingData> readCreditBureauLpMapping();
+
+	Collection<CreditBureauLpMappingData> fetchLoanProducts();
+
+	CreditBureauLpMappingData readMappingByLoanId(long loanProductId);
+
+	
 }

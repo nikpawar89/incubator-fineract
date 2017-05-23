@@ -23,11 +23,7 @@ import java.util.Collection;
 import org.apache.fineract.infrastructure.creditbureau.data.CreditBureauData;
 
 public interface CreditBureauReadPlatformService {
-    
-    Collection<CreditBureauData> retrieveCreditBureau();
-    
-    //CreditBureauData findCreditBureau(final Long cbid);
-    
-   
 
+	Collection<CreditBureauData> retrieveCreditBureau();
+	
 }

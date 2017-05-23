@@ -19,41 +19,34 @@
 package org.apache.fineract.infrastructure.creditbureau.data;
 
 public class CreditBureauMasterData {
-    
-private final long cbID;
 
-private final String cbName;
+	private final long cbID;
 
-private final String country;
+	private final String cbName;
 
+	private final String country;
 
+	public static CreditBureauMasterData instance(final Long cbID, final String cbName, final String country) {
+		return new CreditBureauMasterData(cbID, cbName, country);
+	}
 
-public static CreditBureauMasterData instance(final Long cbID, final String cbName,final String country) {
-    return new CreditBureauMasterData(cbID, cbName,country);
-}
+	private CreditBureauMasterData(final Long cbID, final String cbName, final String country) {
+		this.cbID = cbID;
+		this.cbName = cbName;
+		this.country = country;
 
-private CreditBureauMasterData(final Long cbID, final String cbName,final String country) {
-    this.cbID = cbID;
-    this.cbName = cbName;
-    this.country=country;
-    
-}
+	}
 
+	public String getCbName() {
+		return this.cbName;
+	}
 
+	public String getCountry() {
+		return this.country;
+	}
 
-
-public String getCbName() {
-    return this.cbName;
-}
-
-
-public String getCountry() {
-    return this.country;
-}
-
-public Long getcbID() {
-    return this.cbID;
-}
-
+	public Long getcbID() {
+		return this.cbID;
+	}
 
 }

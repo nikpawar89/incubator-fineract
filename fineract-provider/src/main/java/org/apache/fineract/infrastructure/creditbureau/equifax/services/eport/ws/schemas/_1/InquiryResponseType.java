@@ -24,20 +24,19 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
-
 //import org.apache.fineract.CreditCheck.equifax.services.eport.ws.schemas._1.r
-
-
 
 /**
  * 
- *             The Inquiry service request message type definition
- *          
+ * The Inquiry service request message type definition
  * 
- * <p>Java class for InquiryResponseType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * Java class for InquiryResponseType complex type.
+ * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="InquiryResponseType">
@@ -56,91 +55,78 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InquiryResponseType", propOrder = {
-    "inquiryResponseHeader",
-    "inquiryRequestInfo",
-    "reportData"
-})
+@XmlType(name = "InquiryResponseType", propOrder = { "inquiryResponseHeader", "inquiryRequestInfo", "reportData" })
 @XmlRootElement(name = "RESPONSE")
 public class InquiryResponseType {
 
-    @XmlElement(name = "InquiryResponseHeader", required = true)
-    protected InquiryResponseHeaderType inquiryResponseHeader;
-    @XmlElement(name = "InquiryRequestInfo", required = true)
-    protected RequestBodyType inquiryRequestInfo;
-    @XmlElement(name = "ReportData", required = true)
-    protected ReportType reportData;
+	@XmlElement(name = "InquiryResponseHeader", required = true)
+	protected InquiryResponseHeaderType inquiryResponseHeader;
+	@XmlElement(name = "InquiryRequestInfo", required = true)
+	protected RequestBodyType inquiryRequestInfo;
+	@XmlElement(name = "ReportData", required = true)
+	protected ReportType reportData;
 
-    /**
-     * Gets the value of the inquiryResponseHeader property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InquiryResponseHeaderType }
-     *     
-     */
-    public InquiryResponseHeaderType getInquiryResponseHeader() {
-        return inquiryResponseHeader;
-    }
+	/**
+	 * Gets the value of the inquiryResponseHeader property.
+	 * 
+	 * @return possible object is {@link InquiryResponseHeaderType }
+	 * 
+	 */
+	public InquiryResponseHeaderType getInquiryResponseHeader() {
+		return inquiryResponseHeader;
+	}
 
-    /**
-     * Sets the value of the inquiryResponseHeader property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InquiryResponseHeaderType }
-     *     
-     */
-    public void setInquiryResponseHeader(InquiryResponseHeaderType value) {
-        this.inquiryResponseHeader = value;
-    }
+	/**
+	 * Sets the value of the inquiryResponseHeader property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link InquiryResponseHeaderType }
+	 * 
+	 */
+	public void setInquiryResponseHeader(InquiryResponseHeaderType value) {
+		this.inquiryResponseHeader = value;
+	}
 
-    /**
-     * Gets the value of the inquiryRequestInfo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RequestBodyType }
-     *     
-     */
-    public RequestBodyType getInquiryRequestInfo() {
-        return inquiryRequestInfo;
-    }
+	/**
+	 * Gets the value of the inquiryRequestInfo property.
+	 * 
+	 * @return possible object is {@link RequestBodyType }
+	 * 
+	 */
+	public RequestBodyType getInquiryRequestInfo() {
+		return inquiryRequestInfo;
+	}
 
-    /**
-     * Sets the value of the inquiryRequestInfo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RequestBodyType }
-     *     
-     */
-    public void setInquiryRequestInfo(RequestBodyType value) {
-        this.inquiryRequestInfo = value;
-    }
+	/**
+	 * Sets the value of the inquiryRequestInfo property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link RequestBodyType }
+	 * 
+	 */
+	public void setInquiryRequestInfo(RequestBodyType value) {
+		this.inquiryRequestInfo = value;
+	}
 
-    /**
-     * Gets the value of the reportData property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ReportType }
-     *     
-     */
-    public ReportType getReportData() {
-        return reportData;
-    }
+	/**
+	 * Gets the value of the reportData property.
+	 * 
+	 * @return possible object is {@link ReportType }
+	 * 
+	 */
+	public ReportType getReportData() {
+		return reportData;
+	}
 
-    /**
-     * Sets the value of the reportData property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ReportType }
-     *     
-     */
-    public void setReportData(ReportType value) {
-        this.reportData = value;
-    }
+	/**
+	 * Sets the value of the reportData property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link ReportType }
+	 * 
+	 */
+	public void setReportData(ReportType value) {
+		this.reportData = value;
+	}
 
 }

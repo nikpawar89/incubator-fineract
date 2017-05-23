@@ -23,11 +23,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for uidaiRequest complex type.
+ * <p>
+ * Java class for uidaiRequest complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="uidaiRequest">
@@ -45,64 +47,53 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "uidaiRequest", propOrder = {
-    "uidai",
-    "name"
-})
-public class UidaiRequest
-    extends Request
-{
+@XmlType(name = "uidaiRequest", propOrder = { "uidai", "name" })
+public class UidaiRequest extends Request {
 
-    @XmlElement(name = "UIDAI")
-    protected String uidai;
-    protected String name;
+	@XmlElement(name = "UIDAI")
+	protected String uidai;
+	protected String name;
 
-    /**
-     * Gets the value of the uidai property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUIDAI() {
-        return uidai;
-    }
+	/**
+	 * Gets the value of the uidai property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getUIDAI() {
+		return uidai;
+	}
 
-    /**
-     * Sets the value of the uidai property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUIDAI(String value) {
-        this.uidai = value;
-    }
+	/**
+	 * Sets the value of the uidai property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setUIDAI(String value) {
+		this.uidai = value;
+	}
 
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
+	/**
+	 * Gets the value of the name property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
-    }
+	/**
+	 * Sets the value of the name property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setName(String value) {
+		this.name = value;
+	}
 
 }

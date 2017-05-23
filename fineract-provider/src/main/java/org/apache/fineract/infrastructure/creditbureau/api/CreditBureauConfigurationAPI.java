@@ -22,6 +22,7 @@ package org.apache.fineract.infrastructure.creditbureau.api;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.ws.rs.Consumes;
@@ -42,362 +43,417 @@ import org.apache.fineract.infrastructure.core.api.ApiRequestParameterHelper;
 import org.apache.fineract.infrastructure.core.data.CommandProcessingResult;
 import org.apache.fineract.infrastructure.core.serialization.ApiRequestJsonSerializationSettings;
 import org.apache.fineract.infrastructure.core.serialization.DefaultToApiJsonSerializer;
+import org.apache.fineract.infrastructure.creditbureau.data.CreditBureauConfigurationData;
 import org.apache.fineract.infrastructure.creditbureau.data.CreditBureauData;
 import org.apache.fineract.infrastructure.creditbureau.data.CreditBureauLpMappingData;
 import org.apache.fineract.infrastructure.creditbureau.data.EquifaxReportData;
 import org.apache.fineract.infrastructure.creditbureau.data.OrganisationCreditbureauData;
 import org.apache.fineract.infrastructure.creditbureau.service.CreditBureauLpMappingReadPlatformService;
+import org.apache.fineract.infrastructure.creditbureau.service.CreditBureauReadConfigurationService;
 import org.apache.fineract.infrastructure.creditbureau.service.CreditBureauReadPlatformService;
 import org.apache.fineract.infrastructure.creditbureau.service.EquifaxCreditCheckRequest;
 import org.apache.fineract.infrastructure.creditbureau.service.OrganisationCreditBureauReadPlatformService;
 import org.apache.fineract.infrastructure.security.service.PlatformSecurityContext;
+import org.apache.fineract.portfolio.loanaccount.service.LoanReadPlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
-
 @Path("/cbconfig")
 @Component
 @Scope("singleton")
-public class CreditBureauConfigurationAPI 
-{
-    private final Set<String> RESPONSE_DATA_PARAMETERS = new HashSet<>(Arrays.asList("cb_id","alias",
-            "country","cb_product_id","start_date","end_date","is_active"));
-    private final String resourceNameForPermissions = "CreditBureau";
-    private final PlatformSecurityContext context;
-    private final CreditBureauReadPlatformService readPlatformService; 
-    private final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer;
-    private final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp;
-    private final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb;
-    private final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp; 
-    private final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb; 
-    private final DefaultToApiJsonSerializer<EquifaxReportData> toApiJsonSerializerReport; 
-  /*  private final CreditBureauMasterReadPlatformService readPlatformServiceMaster;
-    private final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer;  
-    private final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp; 
-    private final DefaultToApiJsonSerializer<CreditBureauProduct> toApiJsonSerializerCbp; 
-    private final DefaultToApiJsonSerializer<CreditBureauMasterData> toApiJsonSerializerCbm; */
-    private final ApiRequestParameterHelper apiRequestParameterHelper;
-    private final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService;
-    private final EquifaxCreditCheckRequest crRequest;
-  
- /*   
-    @Autowired
-    public CreditBureauConfigurationAPI(final PlatformSecurityContext context, final CreditBureauReadPlatformService readPlatformService,
-            final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp,final DefaultToApiJsonSerializer<CreditBureauProduct> toApiJsonSerializerCbp,
-            final CreditBureauMasterReadPlatformService readPlatformServiceMaster,
-            final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer,final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp,
-            final DefaultToApiJsonSerializer<CreditBureauMasterData> toApiJsonSerializerCbm,final ApiRequestParameterHelper apiRequestParameterHelper,
-            final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService)
-    {
-        
-    this.context = context;
-    this.readPlatformService = readPlatformService;
-    this.readPlatformServiceCbLp=readPlatformServiceCbLp;
-    this.toApiJsonSerializerCbp=toApiJsonSerializerCbp;
-    this.readPlatformServiceMaster=readPlatformServiceMaster;
-    this.toApiJsonSerializer = toApiJsonSerializer;
-    this.toApiJsonSerializerCbLp=toApiJsonSerializerCbLp;
-    this.toApiJsonSerializerCbm=toApiJsonSerializerCbm;
-    this.apiRequestParameterHelper = apiRequestParameterHelper;
-    this.commandsSourceWritePlatformService = commandsSourceWritePlatformService;
- 
-        
-    }*/
-    
-    @Autowired
-    public CreditBureauConfigurationAPI(final PlatformSecurityContext context, final CreditBureauReadPlatformService readPlatformService, final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer,
-            final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp,final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp,
-            final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb,final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb,final ApiRequestParameterHelper apiRequestParameterHelper,
-            final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService,
-            final EquifaxCreditCheckRequest crRequest,final DefaultToApiJsonSerializer<EquifaxReportData> toApiJsonSerializerReport )
-    {
-        this.context=context;
-        this.readPlatformService=readPlatformService;
-        this.apiRequestParameterHelper=apiRequestParameterHelper;
-        this.readPlatformServiceCbLp=readPlatformServiceCbLp;
-        this.toApiJsonSerializerCbLp=toApiJsonSerializerCbLp;
-        this.readPlatformServiceOrgCb=readPlatformServiceOrgCb;
-        this.toApiJsonSerializerOrgCb=toApiJsonSerializerOrgCb;
-        this.toApiJsonSerializer=toApiJsonSerializer;
-        this.commandsSourceWritePlatformService=commandsSourceWritePlatformService;
-        this.crRequest=crRequest;
-        this.toApiJsonSerializerReport=toApiJsonSerializerReport;
-    }
-    
-    
-    
-    @GET
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String getCreditBureau(@Context final UriInfo uriInfo)
-    {
-        this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+public class CreditBureauConfigurationAPI {
+	private final Set<String> RESPONSE_DATA_PARAMETERS = new HashSet<>(
+			Arrays.asList("cb_id", "alias", "country", "cb_product_id", "start_date", "end_date", "is_active"));
+	private final String resourceNameForPermissions = "CreditBureau";
+	private final PlatformSecurityContext context;
+	private final CreditBureauReadPlatformService readPlatformService;
+	private final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer;
+	private final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp;
+	private final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb;
+	private final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp;
+	private final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb;
+	private final DefaultToApiJsonSerializer<EquifaxReportData> toApiJsonSerializerReport;
+	private final ApiRequestParameterHelper apiRequestParameterHelper;
+	private final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService;
+	private final EquifaxCreditCheckRequest crRequest;
+	private final CreditBureauReadConfigurationService cbConfig;
+	private final CreditBureauLpMappingReadPlatformService cbMapping;
+	private final LoanReadPlatformService loanService;
 
-        final Collection<CreditBureauData> creditBureau = this.readPlatformService.retrieveCreditBureau();
+	@Autowired
+	public CreditBureauConfigurationAPI(final PlatformSecurityContext context,
+			final CreditBureauReadPlatformService readPlatformService,
+			final DefaultToApiJsonSerializer<CreditBureauData> toApiJsonSerializer,
+			final CreditBureauLpMappingReadPlatformService readPlatformServiceCbLp,
+			final DefaultToApiJsonSerializer<CreditBureauLpMappingData> toApiJsonSerializerCbLp,
+			final OrganisationCreditBureauReadPlatformService readPlatformServiceOrgCb,
+			final DefaultToApiJsonSerializer<OrganisationCreditbureauData> toApiJsonSerializerOrgCb,
+			final ApiRequestParameterHelper apiRequestParameterHelper,
+			final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService,
+			final EquifaxCreditCheckRequest crRequest,
+			final DefaultToApiJsonSerializer<EquifaxReportData> toApiJsonSerializerReport,
+			final CreditBureauReadConfigurationService cbConfig, CreditBureauLpMappingReadPlatformService cbMapping,
+			LoanReadPlatformService loanService) {
+		this.context = context;
+		this.readPlatformService = readPlatformService;
+		this.apiRequestParameterHelper = apiRequestParameterHelper;
+		this.readPlatformServiceCbLp = readPlatformServiceCbLp;
+		this.toApiJsonSerializerCbLp = toApiJsonSerializerCbLp;
+		this.readPlatformServiceOrgCb = readPlatformServiceOrgCb;
+		this.toApiJsonSerializerOrgCb = toApiJsonSerializerOrgCb;
+		this.toApiJsonSerializer = toApiJsonSerializer;
+		this.commandsSourceWritePlatformService = commandsSourceWritePlatformService;
+		this.crRequest = crRequest;
+		this.toApiJsonSerializerReport = toApiJsonSerializerReport;
+		this.cbConfig = cbConfig;
+		this.cbMapping = cbMapping;
+		this.loanService = loanService;
+	}
 
-        final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-        return this.toApiJsonSerializer.serialize(settings, creditBureau, this.RESPONSE_DATA_PARAMETERS);
-       
-    }
-    
-  @GET
-    @Path("/mappings")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String getCreditBureauLPMapping(@Context final UriInfo uriInfo)
-    {
-        this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+	@GET
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String getCreditBureau(@Context final UriInfo uriInfo) {
+		this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
 
-        final Collection<CreditBureauLpMappingData> creditBureauLpMapping = this.readPlatformServiceCbLp.readCreditBureauLpMapping();
+		final Collection<CreditBureauData> creditBureau = this.readPlatformService.retrieveCreditBureau();
 
-        final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-        return this.toApiJsonSerializerCbLp.serialize(settings, creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
-       
-   
-           
-    }
-  
-  @GET
-  @Path("/orgcb")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String getOrganisationCreditBureau(@Context final UriInfo uriInfo)
-  {
-      this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+		final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper
+				.process(uriInfo.getQueryParameters());
+		return this.toApiJsonSerializer.serialize(settings, creditBureau, this.RESPONSE_DATA_PARAMETERS);
 
-      final Collection<OrganisationCreditbureauData> organisationCreditBureau = this.readPlatformServiceOrgCb.retrieveOrgCreditBureau();
+	}
 
-      final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-      return this.toApiJsonSerializerOrgCb.serialize(settings, organisationCreditBureau, this.RESPONSE_DATA_PARAMETERS);
-     
- 
-      
-     
-  }
-  
-  
-  @GET
-  @Path("/equifax")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String getEquifaxReport(@Context final UriInfo uriInfo)
-  {
-      this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
-      
-     // String response=crRequest.processRequest();
-      
-      
-     // return response;
+	@GET
+	@Path("/mappings")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String getCreditBureauLPMapping(@Context final UriInfo uriInfo) {
+		this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
 
-      final EquifaxReportData creditReport = this.crRequest.processRequest();
+		final Collection<CreditBureauLpMappingData> creditBureauLpMapping = this.readPlatformServiceCbLp
+				.readCreditBureauLpMapping();
 
-     // final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-     // return this.toApiJsonSerializerReport.serialize(settings, creditReport, this.RESPONSE_DATA_PARAMETERS);
-      
-      return this.toApiJsonSerializerReport.serialize(creditReport);
-      
-      }
-  
-  
-  
-  
-  
-  @PUT
-  @Path("/orgcb")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String updateCreditBureau(final String apiRequestBodyAsJson) {
+		final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper
+				.process(uriInfo.getQueryParameters());
+		return this.toApiJsonSerializerCbLp.serialize(settings, creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
 
-      final CommandWrapper commandRequest = new CommandWrapperBuilder().updateCreditBureau().withJson(apiRequestBodyAsJson).build();
+	}
 
-      final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+	@GET
+	@Path("/orgcb")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String getOrganisationCreditBureau(@Context final UriInfo uriInfo) {
+		this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
 
-      return this.toApiJsonSerializer.serialize(result);
-  }
-  
-  
-  @PUT
-  @Path("/mappings")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String updateCbLpMapping(final String apiRequestBodyAsJson) {
+		final Collection<OrganisationCreditbureauData> organisationCreditBureau = this.readPlatformServiceOrgCb
+				.retrieveOrgCreditBureau();
 
-      final CommandWrapper commandRequest = new CommandWrapperBuilder().updateCbLpMapping().withJson(apiRequestBodyAsJson).build();
+		final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper
+				.process(uriInfo.getQueryParameters());
+		return this.toApiJsonSerializerOrgCb.serialize(settings, organisationCreditBureau,
+				this.RESPONSE_DATA_PARAMETERS);
 
-      final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+	}
 
-      return this.toApiJsonSerializer.serialize(result);
-  }
-  
-  
-  @POST
-  @Path("/orgcb/{ocbId}")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String addOrgCreditBureau(@PathParam("ocbId") final Long ocbId,final String apiRequestBodyAsJson) {
+	@GET
+	@Path("/CBQuery/{loanAccountNumber}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String getEquifaxReport(@PathParam("loanAccountNumber") final Long loanAccountNumber,
+			@Context final UriInfo uriInfo) {
+		this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
 
-      final CommandWrapper commandRequest = new CommandWrapperBuilder().addOrgCreditBureau(ocbId).withJson(apiRequestBodyAsJson).build();
+		long loanproductId = loanService.retrieveLoanByLoanAccount(loanAccountNumber).loanProductId();
 
-      final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+		long cbOrgId = cbMapping.readMappingByLoanId(loanproductId).getOrganisationCreditBureauId();
+		String creditBureauName = readPlatformServiceOrgCb.retrieveOrgCreditBureauById(cbOrgId).getCreditbureauName();
+		EquifaxReportData creditReport = new EquifaxReportData();
+		System.out.println("cb name mapped is " + creditBureauName);
+		if (creditBureauName.equalsIgnoreCase("Equifax")) {
+			creditReport = this.crRequest.processRequest(loanAccountNumber);
+		}
 
-      return this.toApiJsonSerializer.serialize(result);
-  }
-  
-  @POST
-  @Path("/mappings/{cbId}")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String createCB_LP_Mapping(@PathParam("cbId") final Long cbId,final String apiRequestBodyAsJson) {
+		// final ApiRequestJsonSerializationSettings settings =
+		// this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+		// return this.toApiJsonSerializerReport.serialize(settings,
+		// creditReport, this.RESPONSE_DATA_PARAMETERS);
 
-      final CommandWrapper commandRequest = new CommandWrapperBuilder().createCB_LP_Mapping(cbId).withJson(apiRequestBodyAsJson).build();
+		return this.toApiJsonSerializerReport.serialize(creditReport);
 
-      final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+	}
 
-      return this.toApiJsonSerializer.serialize(result);
-  }
-  
-  
-  @GET
-  @Path("/lp")
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
-  public String fetchLoanProducts(@Context final UriInfo uriInfo)
-  {
-      this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+	/*
+	 * @GET
+	 * 
+	 * @Path("/config/{cbId}/")
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * getConfiguration(@PathParam("cbId") final Long cbId,@Context final
+	 * UriInfo uriInfo) { System.out.println("ocdbid is"+cbId);
+	 * 
+	 * this.context.authenticatedUser().validateHasReadPermission(this.
+	 * resourceNameForPermissions);
+	 * 
+	 * final Collection<CreditBureauConfigurationData>
+	 * configData=this.cbConfig.readConfigurationByOrganisationCreditBureauId(
+	 * cbId);
+	 * 
+	 * return this.toApiJsonSerializerReport.serialize(configData); }
+	 */
 
-      final Collection<CreditBureauLpMappingData> creditBureauLpMapping = this.readPlatformServiceCbLp.fetchLoanProducts();
+	@GET
+	@Path("/config/{orgId}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String getConfiguration(@PathParam("orgId") final Long orgId, @Context final UriInfo uriInfo) {
+		// System.out.println("config triggered");
 
-      final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-      return this.toApiJsonSerializerCbLp.serialize(settings, creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
-     }
-    
-/* 
-    
-    @GET
-    @Path("/mappings/{cbId}")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String getCreditBureauProductByCreditBureau(@PathParam("cbId") final long cbId,@Context final UriInfo uriInfo)
-    {
-        this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+		this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
 
-        final Collection<CreditBureauProduct> creditBureauLpMapping = this.readPlatformServiceCbLp.findCreditBureauProductByCreditBureau(cbId);
+		final Collection<CreditBureauConfigurationData> configData = this.cbConfig
+				.readConfigurationByOrganisationCreditBureauId(orgId);
 
-        final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-        return this.toApiJsonSerializerCbp.serialize(settings, creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
-       
-    }
-    
-    
-    @GET
-    @Path("/dropdown")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String getDataForDropdown(@Context final UriInfo uriInfo,@QueryParam("country") final String country)
-    {
-        this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+		List<CreditBureauConfigurationData> config = (List<CreditBureauConfigurationData>) this.cbConfig
+				.readConfigurationByOrganisationCreditBureauId(orgId);
 
-        Collection<CreditBureauMasterData> creditBureauByCountry;
-        if(country==null)
-        {
-            creditBureauByCountry = this.readPlatformServiceMaster.retrieveCreditBureauByCountry(); 
-           
-        }
-        else
-        {
-          creditBureauByCountry = this.readPlatformServiceMaster.retrieveCreditBureauByCountry(country);   
-            
-        }
-        
-        final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-        return this.toApiJsonSerializerCbm.serialize(settings, creditBureauByCountry, this.RESPONSE_DATA_PARAMETERS);
-       
-       
-    }
-    
-    @GET
-    @Path("/dropdown/{country}")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String getCbBycountry(@Context final UriInfo uriInfo,@PathParam("country") final String country)
-    {
-        this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+		for (CreditBureauConfigurationData data : config) {
+			System.out.println("Key: " + data.getConfigKey() + " Val:" + data.getValue());
+		}
 
-        Collection<CreditBureauMasterData> creditBureauByCountry;
-        if(country==null)
-        {
-            creditBureauByCountry = this.readPlatformServiceMaster.retrieveCreditBureauByCountry(); 
-           
-        }
-        else
-        {
-          creditBureauByCountry = this.readPlatformServiceMaster.retrieveCreditBureauByCountry(country);   
-            
-        }
-        
-        final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-        return this.toApiJsonSerializerCbm.serialize(settings, creditBureauByCountry, this.RESPONSE_DATA_PARAMETERS);
-       
-       
-    }
-    
-     @GET
-    @Path("/lp")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String fetchLoanProducts(@Context final UriInfo uriInfo)
-    {
-        this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+		return this.toApiJsonSerializerReport.serialize(configData);
+	}
 
-        final Collection<CreditBureauLpMappingData> creditBureauLpMapping = this.readPlatformServiceCbLp.fetchLoanProducts();
+	@PUT
+	@Path("/orgcb")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String updateCreditBureau(final String apiRequestBodyAsJson) {
 
-        final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
-        return this.toApiJsonSerializerCbm.serialize(settings, creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
-       }
-    
-    
-    @POST
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String createCreditBureau(final String apiRequestBodyAsJson) {
+		final CommandWrapper commandRequest = new CommandWrapperBuilder().updateCreditBureau()
+				.withJson(apiRequestBodyAsJson).build();
 
-        final CommandWrapper commandRequest = new CommandWrapperBuilder().createCreditBureau().withJson(apiRequestBodyAsJson).build();
+		final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
 
-        final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+		return this.toApiJsonSerializer.serialize(result);
+	}
 
-        return this.toApiJsonSerializer.serialize(result);
-    }
-    
-    
-    
-    @POST
-    @Path("{cbId}")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String createCB_LP_Mapping(@PathParam("cbId") final Long cbId,final String apiRequestBodyAsJson) {
+	@PUT
+	@Path("/mappings")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String updateCbLpMapping(final String apiRequestBodyAsJson) {
 
-        final CommandWrapper commandRequest = new CommandWrapperBuilder().createCB_LP_Mapping(cbId).withJson(apiRequestBodyAsJson).build();
+		final CommandWrapper commandRequest = new CommandWrapperBuilder().updateCbLpMapping()
+				.withJson(apiRequestBodyAsJson).build();
 
-        final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+		final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
 
-        return this.toApiJsonSerializer.serialize(result);
-    }
-    
-    @PUT
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public String updateCreditBureau(final String apiRequestBodyAsJson) {
+		return this.toApiJsonSerializer.serialize(result);
+	}
 
-        final CommandWrapper commandRequest = new CommandWrapperBuilder().updateCreditBureau().withJson(apiRequestBodyAsJson).build();
+	@POST
+	@Path("/orgcb/{ocbId}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String addOrgCreditBureau(@PathParam("ocbId") final Long ocbId, final String apiRequestBodyAsJson) {
 
-        final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+		final CommandWrapper commandRequest = new CommandWrapperBuilder().addOrgCreditBureau(ocbId)
+				.withJson(apiRequestBodyAsJson).build();
 
-        return this.toApiJsonSerializer.serialize(result);
-    }*/
+		final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
 
-    
-    
-    
+		return this.toApiJsonSerializer.serialize(result);
+	}
+
+	@POST
+	@Path("/mappings/{cbId}")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String createCB_LP_Mapping(@PathParam("cbId") final Long cbId, final String apiRequestBodyAsJson) {
+
+		final CommandWrapper commandRequest = new CommandWrapperBuilder().createCB_LP_Mapping(cbId)
+				.withJson(apiRequestBodyAsJson).build();
+
+		final CommandProcessingResult result = this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+
+		return this.toApiJsonSerializer.serialize(result);
+	}
+
+	@GET
+	@Path("/lp")
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public String fetchLoanProducts(@Context final UriInfo uriInfo) {
+		this.context.authenticatedUser().validateHasReadPermission(this.resourceNameForPermissions);
+
+		final Collection<CreditBureauLpMappingData> creditBureauLpMapping = this.readPlatformServiceCbLp
+				.fetchLoanProducts();
+
+		final ApiRequestJsonSerializationSettings settings = this.apiRequestParameterHelper
+				.process(uriInfo.getQueryParameters());
+		return this.toApiJsonSerializerCbLp.serialize(settings, creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
+	}
+
+	/*
+	 * 
+	 * @GET
+	 * 
+	 * @Path("/mappings/{cbId}")
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * getCreditBureauProductByCreditBureau(@PathParam("cbId") final long
+	 * cbId,@Context final UriInfo uriInfo) {
+	 * this.context.authenticatedUser().validateHasReadPermission(this.
+	 * resourceNameForPermissions);
+	 * 
+	 * final Collection<CreditBureauProduct> creditBureauLpMapping =
+	 * this.readPlatformServiceCbLp.findCreditBureauProductByCreditBureau(cbId);
+	 * 
+	 * final ApiRequestJsonSerializationSettings settings =
+	 * this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+	 * return this.toApiJsonSerializerCbp.serialize(settings,
+	 * creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS);
+	 * 
+	 * }
+	 * 
+	 * 
+	 * @GET
+	 * 
+	 * @Path("/dropdown")
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * getDataForDropdown(@Context final UriInfo uriInfo,@QueryParam("country")
+	 * final String country) {
+	 * this.context.authenticatedUser().validateHasReadPermission(this.
+	 * resourceNameForPermissions);
+	 * 
+	 * Collection<CreditBureauMasterData> creditBureauByCountry;
+	 * if(country==null) { creditBureauByCountry =
+	 * this.readPlatformServiceMaster.retrieveCreditBureauByCountry();
+	 * 
+	 * } else { creditBureauByCountry =
+	 * this.readPlatformServiceMaster.retrieveCreditBureauByCountry(country);
+	 * 
+	 * }
+	 * 
+	 * final ApiRequestJsonSerializationSettings settings =
+	 * this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+	 * return this.toApiJsonSerializerCbm.serialize(settings,
+	 * creditBureauByCountry, this.RESPONSE_DATA_PARAMETERS);
+	 * 
+	 * 
+	 * }
+	 * 
+	 * @GET
+	 * 
+	 * @Path("/dropdown/{country}")
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * getCbBycountry(@Context final UriInfo uriInfo,@PathParam("country") final
+	 * String country) {
+	 * this.context.authenticatedUser().validateHasReadPermission(this.
+	 * resourceNameForPermissions);
+	 * 
+	 * Collection<CreditBureauMasterData> creditBureauByCountry;
+	 * if(country==null) { creditBureauByCountry =
+	 * this.readPlatformServiceMaster.retrieveCreditBureauByCountry();
+	 * 
+	 * } else { creditBureauByCountry =
+	 * this.readPlatformServiceMaster.retrieveCreditBureauByCountry(country);
+	 * 
+	 * }
+	 * 
+	 * final ApiRequestJsonSerializationSettings settings =
+	 * this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+	 * return this.toApiJsonSerializerCbm.serialize(settings,
+	 * creditBureauByCountry, this.RESPONSE_DATA_PARAMETERS);
+	 * 
+	 * 
+	 * }
+	 * 
+	 * @GET
+	 * 
+	 * @Path("/lp")
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * fetchLoanProducts(@Context final UriInfo uriInfo) {
+	 * this.context.authenticatedUser().validateHasReadPermission(this.
+	 * resourceNameForPermissions);
+	 * 
+	 * final Collection<CreditBureauLpMappingData> creditBureauLpMapping =
+	 * this.readPlatformServiceCbLp.fetchLoanProducts();
+	 * 
+	 * final ApiRequestJsonSerializationSettings settings =
+	 * this.apiRequestParameterHelper.process(uriInfo.getQueryParameters());
+	 * return this.toApiJsonSerializerCbm.serialize(settings,
+	 * creditBureauLpMapping, this.RESPONSE_DATA_PARAMETERS); }
+	 * 
+	 * 
+	 * @POST
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * createCreditBureau(final String apiRequestBodyAsJson) {
+	 * 
+	 * final CommandWrapper commandRequest = new
+	 * CommandWrapperBuilder().createCreditBureau().withJson(
+	 * apiRequestBodyAsJson).build();
+	 * 
+	 * final CommandProcessingResult result =
+	 * this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+	 * 
+	 * return this.toApiJsonSerializer.serialize(result); }
+	 * 
+	 * 
+	 * 
+	 * @POST
+	 * 
+	 * @Path("{cbId}")
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * createCB_LP_Mapping(@PathParam("cbId") final Long cbId,final String
+	 * apiRequestBodyAsJson) {
+	 * 
+	 * final CommandWrapper commandRequest = new
+	 * CommandWrapperBuilder().createCB_LP_Mapping(cbId).withJson(
+	 * apiRequestBodyAsJson).build();
+	 * 
+	 * final CommandProcessingResult result =
+	 * this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+	 * 
+	 * return this.toApiJsonSerializer.serialize(result); }
+	 * 
+	 * @PUT
+	 * 
+	 * @Consumes({ MediaType.APPLICATION_JSON })
+	 * 
+	 * @Produces({ MediaType.APPLICATION_JSON }) public String
+	 * updateCreditBureau(final String apiRequestBodyAsJson) {
+	 * 
+	 * final CommandWrapper commandRequest = new
+	 * CommandWrapperBuilder().updateCreditBureau().withJson(
+	 * apiRequestBodyAsJson).build();
+	 * 
+	 * final CommandProcessingResult result =
+	 * this.commandsSourceWritePlatformService.logCommandSource(commandRequest);
+	 * 
+	 * return this.toApiJsonSerializer.serialize(result); }
+	 */
+
 }

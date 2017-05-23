@@ -22,11 +22,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for vidUidaiResponse complex type.
+ * <p>
+ * Java class for vidUidaiResponse complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="vidUidaiResponse">
@@ -44,61 +46,52 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "vidUidaiResponse", propOrder = {
-    "uidaiRequest",
-    "uidaiResponse"
-})
+@XmlType(name = "vidUidaiResponse", propOrder = { "uidaiRequest", "uidaiResponse" })
 public class VidUidaiResponse {
 
-    protected UidaiRequest uidaiRequest;
-    protected UidaiResponse uidaiResponse;
+	protected UidaiRequest uidaiRequest;
+	protected UidaiResponse uidaiResponse;
 
-    /**
-     * Gets the value of the uidaiRequest property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UidaiRequest }
-     *     
-     */
-    public UidaiRequest getUidaiRequest() {
-        return uidaiRequest;
-    }
+	/**
+	 * Gets the value of the uidaiRequest property.
+	 * 
+	 * @return possible object is {@link UidaiRequest }
+	 * 
+	 */
+	public UidaiRequest getUidaiRequest() {
+		return uidaiRequest;
+	}
 
-    /**
-     * Sets the value of the uidaiRequest property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UidaiRequest }
-     *     
-     */
-    public void setUidaiRequest(UidaiRequest value) {
-        this.uidaiRequest = value;
-    }
+	/**
+	 * Sets the value of the uidaiRequest property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link UidaiRequest }
+	 * 
+	 */
+	public void setUidaiRequest(UidaiRequest value) {
+		this.uidaiRequest = value;
+	}
 
-    /**
-     * Gets the value of the uidaiResponse property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UidaiResponse }
-     *     
-     */
-    public UidaiResponse getUidaiResponse() {
-        return uidaiResponse;
-    }
+	/**
+	 * Gets the value of the uidaiResponse property.
+	 * 
+	 * @return possible object is {@link UidaiResponse }
+	 * 
+	 */
+	public UidaiResponse getUidaiResponse() {
+		return uidaiResponse;
+	}
 
-    /**
-     * Sets the value of the uidaiResponse property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UidaiResponse }
-     *     
-     */
-    public void setUidaiResponse(UidaiResponse value) {
-        this.uidaiResponse = value;
-    }
+	/**
+	 * Sets the value of the uidaiResponse property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link UidaiResponse }
+	 * 
+	 */
+	public void setUidaiResponse(UidaiResponse value) {
+		this.uidaiResponse = value;
+	}
 
 }

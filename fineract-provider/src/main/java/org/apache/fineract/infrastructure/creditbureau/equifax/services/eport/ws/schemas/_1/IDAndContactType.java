@@ -25,11 +25,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for IDAndContactType complex type.
+ * <p>
+ * Java class for IDAndContactType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="IDAndContactType">
@@ -51,186 +53,174 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "IDAndContactType", propOrder = {
-    "personalInfo",
-    "identityInfo",
-    "addressInfo",
-    "familyDetails",
-    "phoneInfo",
-    "emailAddressInfo"
-})
+@XmlType(name = "IDAndContactType", propOrder = { "personalInfo", "identityInfo", "addressInfo", "familyDetails",
+		"phoneInfo", "emailAddressInfo" })
 public class IDAndContactType {
 
-    @XmlElement(name = "PersonalInfo")
-    protected PersonalInfoType personalInfo;
-    @XmlElement(name = "IdentityInfo")
-    protected IdentificationType identityInfo;
-    @XmlElement(name = "AddressInfo")
-    protected List<AddressType> addressInfo;
-    @XmlElement(name = "FamilyDetails")
-    protected FamilyInfo familyDetails;
-    @XmlElement(name = "PhoneInfo")
-    protected List<PhoneType> phoneInfo;
-    @XmlElement(name = "EmailAddressInfo")
-    protected List<EmailAddressType> emailAddressInfo;
+	@XmlElement(name = "PersonalInfo")
+	protected PersonalInfoType personalInfo;
+	@XmlElement(name = "IdentityInfo")
+	protected IdentificationType identityInfo;
+	@XmlElement(name = "AddressInfo")
+	protected List<AddressType> addressInfo;
+	@XmlElement(name = "FamilyDetails")
+	protected FamilyInfo familyDetails;
+	@XmlElement(name = "PhoneInfo")
+	protected List<PhoneType> phoneInfo;
+	@XmlElement(name = "EmailAddressInfo")
+	protected List<EmailAddressType> emailAddressInfo;
 
-    /**
-     * Gets the value of the personalInfo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PersonalInfoType }
-     *     
-     */
-    public PersonalInfoType getPersonalInfo() {
-        return personalInfo;
-    }
+	/**
+	 * Gets the value of the personalInfo property.
+	 * 
+	 * @return possible object is {@link PersonalInfoType }
+	 * 
+	 */
+	public PersonalInfoType getPersonalInfo() {
+		return personalInfo;
+	}
 
-    /**
-     * Sets the value of the personalInfo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PersonalInfoType }
-     *     
-     */
-    public void setPersonalInfo(PersonalInfoType value) {
-        this.personalInfo = value;
-    }
+	/**
+	 * Sets the value of the personalInfo property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link PersonalInfoType }
+	 * 
+	 */
+	public void setPersonalInfo(PersonalInfoType value) {
+		this.personalInfo = value;
+	}
 
-    /**
-     * Gets the value of the identityInfo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link IdentificationType }
-     *     
-     */
-    public IdentificationType getIdentityInfo() {
-        return identityInfo;
-    }
+	/**
+	 * Gets the value of the identityInfo property.
+	 * 
+	 * @return possible object is {@link IdentificationType }
+	 * 
+	 */
+	public IdentificationType getIdentityInfo() {
+		return identityInfo;
+	}
 
-    /**
-     * Sets the value of the identityInfo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link IdentificationType }
-     *     
-     */
-    public void setIdentityInfo(IdentificationType value) {
-        this.identityInfo = value;
-    }
+	/**
+	 * Sets the value of the identityInfo property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link IdentificationType }
+	 * 
+	 */
+	public void setIdentityInfo(IdentificationType value) {
+		this.identityInfo = value;
+	}
 
-    /**
-     * Gets the value of the addressInfo property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the addressInfo property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAddressInfo().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link AddressType }
-     * 
-     * 
-     */
-    public List<AddressType> getAddressInfo() {
-        if (addressInfo == null) {
-            addressInfo = new ArrayList<AddressType>();
-        }
-        return this.addressInfo;
-    }
+	/**
+	 * Gets the value of the addressInfo property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the addressInfo property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getAddressInfo().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link AddressType }
+	 * 
+	 * 
+	 */
+	public List<AddressType> getAddressInfo() {
+		if (addressInfo == null) {
+			addressInfo = new ArrayList<AddressType>();
+		}
+		return this.addressInfo;
+	}
 
-    /**
-     * Gets the value of the familyDetails property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FamilyInfo }
-     *     
-     */
-    public FamilyInfo getFamilyDetails() {
-        return familyDetails;
-    }
+	/**
+	 * Gets the value of the familyDetails property.
+	 * 
+	 * @return possible object is {@link FamilyInfo }
+	 * 
+	 */
+	public FamilyInfo getFamilyDetails() {
+		return familyDetails;
+	}
 
-    /**
-     * Sets the value of the familyDetails property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link FamilyInfo }
-     *     
-     */
-    public void setFamilyDetails(FamilyInfo value) {
-        this.familyDetails = value;
-    }
+	/**
+	 * Sets the value of the familyDetails property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link FamilyInfo }
+	 * 
+	 */
+	public void setFamilyDetails(FamilyInfo value) {
+		this.familyDetails = value;
+	}
 
-    /**
-     * Gets the value of the phoneInfo property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the phoneInfo property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPhoneInfo().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link PhoneType }
-     * 
-     * 
-     */
-    public List<PhoneType> getPhoneInfo() {
-        if (phoneInfo == null) {
-            phoneInfo = new ArrayList<PhoneType>();
-        }
-        return this.phoneInfo;
-    }
+	/**
+	 * Gets the value of the phoneInfo property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the phoneInfo property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getPhoneInfo().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link PhoneType
+	 * }
+	 * 
+	 * 
+	 */
+	public List<PhoneType> getPhoneInfo() {
+		if (phoneInfo == null) {
+			phoneInfo = new ArrayList<PhoneType>();
+		}
+		return this.phoneInfo;
+	}
 
-    /**
-     * Gets the value of the emailAddressInfo property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the emailAddressInfo property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEmailAddressInfo().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EmailAddressType }
-     * 
-     * 
-     */
-    public List<EmailAddressType> getEmailAddressInfo() {
-        if (emailAddressInfo == null) {
-            emailAddressInfo = new ArrayList<EmailAddressType>();
-        }
-        return this.emailAddressInfo;
-    }
+	/**
+	 * Gets the value of the emailAddressInfo property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the emailAddressInfo property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getEmailAddressInfo().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link EmailAddressType }
+	 * 
+	 * 
+	 */
+	public List<EmailAddressType> getEmailAddressInfo() {
+		if (emailAddressInfo == null) {
+			emailAddressInfo = new ArrayList<EmailAddressType>();
+		}
+		return this.emailAddressInfo;
+	}
 
 }

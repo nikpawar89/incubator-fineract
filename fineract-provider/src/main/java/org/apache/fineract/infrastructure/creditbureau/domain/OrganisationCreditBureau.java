@@ -31,84 +31,68 @@ import org.apache.fineract.infrastructure.core.api.JsonCommand;
 import org.apache.fineract.infrastructure.core.domain.AbstractPersistableCustom;
 
 @Entity
-@Table(name="m_organisation_creditbureau")
-public class OrganisationCreditBureau extends AbstractPersistableCustom<Long> 
-{
+@Table(name = "m_organisation_creditbureau")
+public class OrganisationCreditBureau extends AbstractPersistableCustom<Long> {
 
-    private String alias;
-    
-    @OneToOne
-    private CreditBureau creditbureau;
-    
-    private boolean is_active;
-    
-    @OneToMany(mappedBy="organisation_creditbureau",cascade=CascadeType.ALL)
-    private List<CreditBureauLpMapping> creditBureauLpMapping=new ArrayList<>();
-    
-    public OrganisationCreditBureau(String alias,CreditBureau creditbureau,boolean is_active,
-    		List<CreditBureauLpMapping> creditBureauLpMapping)
-    {
-        this.alias=alias;
-        this.creditbureau=creditbureau;
-        this.is_active=is_active;
-        this.creditBureauLpMapping=creditBureauLpMapping;
-    }
-    
-    public OrganisationCreditBureau()
-    {
-        
-    }
-    
-    public static OrganisationCreditBureau fromJson(final JsonCommand command,CreditBureau creditbureau)
-    {
-        final String alias=command.stringValueOfParameterNamed("alias");
-        final boolean is_active=command.booleanPrimitiveValueOfParameterNamed("is_active");
-        
-        return new OrganisationCreditBureau(alias,creditbureau,is_active,null);
-    }
+	private String alias;
 
-    
-    public String getAlias() {
-        return this.alias;
-    }
+	@OneToOne
+	private CreditBureau creditbureau;
 
-    
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
+	private boolean is_active;
 
-    
-    public CreditBureau getCreditbureau() {
-        return this.creditbureau;
-    }
+	@OneToMany(mappedBy = "organisation_creditbureau", cascade = CascadeType.ALL)
+	private List<CreditBureauLpMapping> creditBureauLpMapping = new ArrayList<>();
 
-    
-    public void setCreditbureau(CreditBureau creditbureau) {
-        this.creditbureau = creditbureau;
-    }
+	public OrganisationCreditBureau(String alias, CreditBureau creditbureau, boolean is_active,
+			List<CreditBureauLpMapping> creditBureauLpMapping) {
+		this.alias = alias;
+		this.creditbureau = creditbureau;
+		this.is_active = is_active;
+		this.creditBureauLpMapping = creditBureauLpMapping;
+	}
 
-    
-    public boolean isIs_active() {
-        return this.is_active;
-    }
+	public OrganisationCreditBureau() {
 
-    
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
-    }
+	}
 
-    
-    public List<CreditBureauLpMapping> getCreditBureauLpMapping() {
-        return this.creditBureauLpMapping;
-    }
+	public static OrganisationCreditBureau fromJson(final JsonCommand command, CreditBureau creditbureau) {
+		final String alias = command.stringValueOfParameterNamed("alias");
+		final boolean is_active = command.booleanPrimitiveValueOfParameterNamed("is_active");
 
-    
-    public void setCreditBureauLpMapping(List<CreditBureauLpMapping> creditBureauLpMapping) {
-        this.creditBureauLpMapping = creditBureauLpMapping;
-    }
-    
-    
-    
-    
-     
+		return new OrganisationCreditBureau(alias, creditbureau, is_active, null);
+	}
+
+	public String getAlias() {
+		return this.alias;
+	}
+
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+
+	public CreditBureau getCreditbureau() {
+		return this.creditbureau;
+	}
+
+	public void setCreditbureau(CreditBureau creditbureau) {
+		this.creditbureau = creditbureau;
+	}
+
+	public boolean isIs_active() {
+		return this.is_active;
+	}
+
+	public void setIs_active(boolean is_active) {
+		this.is_active = is_active;
+	}
+
+	public List<CreditBureauLpMapping> getCreditBureauLpMapping() {
+		return this.creditBureauLpMapping;
+	}
+
+	public void setCreditBureauLpMapping(List<CreditBureauLpMapping> creditBureauLpMapping) {
+		this.creditBureauLpMapping = creditBureauLpMapping;
+	}
+
 }

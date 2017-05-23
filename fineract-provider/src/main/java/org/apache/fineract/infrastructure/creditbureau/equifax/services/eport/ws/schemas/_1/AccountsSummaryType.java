@@ -23,13 +23,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * For CCR AccountsSummary Implementation
  * 
- * <p>Java class for AccountsSummaryType complex type.
+ * <p>
+ * Java class for AccountsSummaryType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="AccountsSummaryType">
@@ -46,36 +48,31 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AccountsSummaryType", propOrder = {
-    "consolidateCreditSummary"
-})
+@XmlType(name = "AccountsSummaryType", propOrder = { "consolidateCreditSummary" })
 public class AccountsSummaryType {
 
-    @XmlElement(name = "ConsolidateCreditSummary")
-    protected ConsolidateCreditSummaryType consolidateCreditSummary;
+	@XmlElement(name = "ConsolidateCreditSummary")
+	protected ConsolidateCreditSummaryType consolidateCreditSummary;
 
-    /**
-     * Gets the value of the consolidateCreditSummary property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ConsolidateCreditSummaryType }
-     *     
-     */
-    public ConsolidateCreditSummaryType getConsolidateCreditSummary() {
-        return consolidateCreditSummary;
-    }
+	/**
+	 * Gets the value of the consolidateCreditSummary property.
+	 * 
+	 * @return possible object is {@link ConsolidateCreditSummaryType }
+	 * 
+	 */
+	public ConsolidateCreditSummaryType getConsolidateCreditSummary() {
+		return consolidateCreditSummary;
+	}
 
-    /**
-     * Sets the value of the consolidateCreditSummary property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ConsolidateCreditSummaryType }
-     *     
-     */
-    public void setConsolidateCreditSummary(ConsolidateCreditSummaryType value) {
-        this.consolidateCreditSummary = value;
-    }
+	/**
+	 * Sets the value of the consolidateCreditSummary property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link ConsolidateCreditSummaryType }
+	 * 
+	 */
+	public void setConsolidateCreditSummary(ConsolidateCreditSummaryType value) {
+		this.consolidateCreditSummary = value;
+	}
 
 }

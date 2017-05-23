@@ -27,22 +27,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@CommandType(entity="CB_LP_Mapping",action="CREATE")
+@CommandType(entity = "CB_LP_Mapping", action = "CREATE")
 public class CreateCbLpMappingCommandHandler implements NewCommandSourceHandler {
-    
-    private final CreditBureauLpMappingWritePlatformService writePlatformService;
-    
-    @Autowired
-    public CreateCbLpMappingCommandHandler(final CreditBureauLpMappingWritePlatformService writePlatformService)
-    {
-        this.writePlatformService = writePlatformService;
-    }
 
-    @Override
-    public CommandProcessingResult processCommand(JsonCommand command) {
-        
-        return this.writePlatformService.addCbLpMapping(command.getCbId(),command);
-    }
-    
+	private final CreditBureauLpMappingWritePlatformService writePlatformService;
+
+	@Autowired
+	public CreateCbLpMappingCommandHandler(final CreditBureauLpMappingWritePlatformService writePlatformService) {
+		this.writePlatformService = writePlatformService;
+	}
+
+	@Override
+	public CommandProcessingResult processCommand(JsonCommand command) {
+
+		return this.writePlatformService.addCbLpMapping(command.getCbId(), command);
+	}
 
 }

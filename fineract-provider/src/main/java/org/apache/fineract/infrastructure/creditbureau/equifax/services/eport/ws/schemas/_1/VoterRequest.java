@@ -22,11 +22,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for voterRequest complex type.
+ * <p>
+ * Java class for voterRequest complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="voterRequest">
@@ -43,37 +45,30 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "voterRequest", propOrder = {
-    "voterId"
-})
-public class VoterRequest
-    extends Request
-{
+@XmlType(name = "voterRequest", propOrder = { "voterId" })
+public class VoterRequest extends Request {
 
-    protected String voterId;
+	protected String voterId;
 
-    /**
-     * Gets the value of the voterId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getVoterId() {
-        return voterId;
-    }
+	/**
+	 * Gets the value of the voterId property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getVoterId() {
+		return voterId;
+	}
 
-    /**
-     * Sets the value of the voterId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setVoterId(String value) {
-        this.voterId = value;
-    }
+	/**
+	 * Sets the value of the voterId property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setVoterId(String value) {
+		this.voterId = value;
+	}
 
 }

@@ -23,11 +23,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for RecentActivitiesType complex type.
+ * <p>
+ * Java class for RecentActivitiesType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="RecentActivitiesType">
@@ -47,117 +49,101 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RecentActivitiesType", propOrder = {
-    "accountsDeliquent",
-    "accountsOpened",
-    "totalInquiries",
-    "accountsUpdated"
-})
+@XmlType(name = "RecentActivitiesType", propOrder = { "accountsDeliquent", "accountsOpened", "totalInquiries",
+		"accountsUpdated" })
 public class RecentActivitiesType {
 
-    @XmlElement(name = "AccountsDeliquent")
-    protected Integer accountsDeliquent;
-    @XmlElement(name = "AccountsOpened")
-    protected Integer accountsOpened;
-    @XmlElement(name = "TotalInquiries")
-    protected Integer totalInquiries;
-    @XmlElement(name = "AccountsUpdated")
-    protected Integer accountsUpdated;
+	@XmlElement(name = "AccountsDeliquent")
+	protected Integer accountsDeliquent;
+	@XmlElement(name = "AccountsOpened")
+	protected Integer accountsOpened;
+	@XmlElement(name = "TotalInquiries")
+	protected Integer totalInquiries;
+	@XmlElement(name = "AccountsUpdated")
+	protected Integer accountsUpdated;
 
-    /**
-     * Gets the value of the accountsDeliquent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getAccountsDeliquent() {
-        return accountsDeliquent;
-    }
+	/**
+	 * Gets the value of the accountsDeliquent property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getAccountsDeliquent() {
+		return accountsDeliquent;
+	}
 
-    /**
-     * Sets the value of the accountsDeliquent property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setAccountsDeliquent(Integer value) {
-        this.accountsDeliquent = value;
-    }
+	/**
+	 * Sets the value of the accountsDeliquent property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setAccountsDeliquent(Integer value) {
+		this.accountsDeliquent = value;
+	}
 
-    /**
-     * Gets the value of the accountsOpened property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getAccountsOpened() {
-        return accountsOpened;
-    }
+	/**
+	 * Gets the value of the accountsOpened property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getAccountsOpened() {
+		return accountsOpened;
+	}
 
-    /**
-     * Sets the value of the accountsOpened property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setAccountsOpened(Integer value) {
-        this.accountsOpened = value;
-    }
+	/**
+	 * Sets the value of the accountsOpened property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setAccountsOpened(Integer value) {
+		this.accountsOpened = value;
+	}
 
-    /**
-     * Gets the value of the totalInquiries property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getTotalInquiries() {
-        return totalInquiries;
-    }
+	/**
+	 * Gets the value of the totalInquiries property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getTotalInquiries() {
+		return totalInquiries;
+	}
 
-    /**
-     * Sets the value of the totalInquiries property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setTotalInquiries(Integer value) {
-        this.totalInquiries = value;
-    }
+	/**
+	 * Sets the value of the totalInquiries property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setTotalInquiries(Integer value) {
+		this.totalInquiries = value;
+	}
 
-    /**
-     * Gets the value of the accountsUpdated property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getAccountsUpdated() {
-        return accountsUpdated;
-    }
+	/**
+	 * Gets the value of the accountsUpdated property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getAccountsUpdated() {
+		return accountsUpdated;
+	}
 
-    /**
-     * Sets the value of the accountsUpdated property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setAccountsUpdated(Integer value) {
-        this.accountsUpdated = value;
-    }
+	/**
+	 * Sets the value of the accountsUpdated property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Integer }
+	 * 
+	 */
+	public void setAccountsUpdated(Integer value) {
+		this.accountsUpdated = value;
+	}
 
 }

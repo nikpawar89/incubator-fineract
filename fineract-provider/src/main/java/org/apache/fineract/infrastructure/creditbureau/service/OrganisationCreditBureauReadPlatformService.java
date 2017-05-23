@@ -22,7 +22,8 @@ import java.util.Collection;
 
 import org.apache.fineract.infrastructure.creditbureau.data.OrganisationCreditbureauData;
 
-public interface OrganisationCreditBureauReadPlatformService 
-{
-    Collection<OrganisationCreditbureauData> retrieveOrgCreditBureau();
+public interface OrganisationCreditBureauReadPlatformService {
+	Collection<OrganisationCreditbureauData> retrieveOrgCreditBureau();
+
+	OrganisationCreditbureauData retrieveOrgCreditBureauById(long orgCbId);
 }

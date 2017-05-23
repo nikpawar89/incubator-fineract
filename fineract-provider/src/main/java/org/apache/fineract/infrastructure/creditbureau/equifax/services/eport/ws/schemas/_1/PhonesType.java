@@ -25,11 +25,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for PhonesType complex type.
+ * <p>
+ * Java class for PhonesType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="PhonesType">
@@ -46,41 +48,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PhonesType", propOrder = {
-    "phone"
-})
+@XmlType(name = "PhonesType", propOrder = { "phone" })
 public class PhonesType {
 
-    @XmlElement(name = "Phone")
-    protected List<PhoneType> phone;
+	@XmlElement(name = "Phone")
+	protected List<PhoneType> phone;
 
-    /**
-     * Gets the value of the phone property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the phone property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPhone().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link PhoneType }
-     * 
-     * 
-     */
-    public List<PhoneType> getPhone() {
-        if (phone == null) {
-            phone = new ArrayList<PhoneType>();
-        }
-        return this.phone;
-    }
+	/**
+	 * Gets the value of the phone property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the phone property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getPhone().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link PhoneType
+	 * }
+	 * 
+	 * 
+	 */
+	public List<PhoneType> getPhone() {
+		if (phone == null) {
+			phone = new ArrayList<PhoneType>();
+		}
+		return this.phone;
+	}
 
 }

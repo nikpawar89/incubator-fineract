@@ -25,11 +25,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for InquiryCommonAccountDetailsType complex type.
+ * <p>
+ * Java class for InquiryCommonAccountDetailsType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="InquiryCommonAccountDetailsType">
@@ -46,41 +48,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InquiryCommonAccountDetailsType", propOrder = {
-    "inquiryAccount"
-})
+@XmlType(name = "InquiryCommonAccountDetailsType", propOrder = { "inquiryAccount" })
 public class InquiryCommonAccountDetailsType {
 
-    @XmlElement(name = "InquiryAccount")
-    protected List<AccountInputType> inquiryAccount;
+	@XmlElement(name = "InquiryAccount")
+	protected List<AccountInputType> inquiryAccount;
 
-    /**
-     * Gets the value of the inquiryAccount property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the inquiryAccount property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getInquiryAccount().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link AccountInputType }
-     * 
-     * 
-     */
-    public List<AccountInputType> getInquiryAccount() {
-        if (inquiryAccount == null) {
-            inquiryAccount = new ArrayList<AccountInputType>();
-        }
-        return this.inquiryAccount;
-    }
+	/**
+	 * Gets the value of the inquiryAccount property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the inquiryAccount property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getInquiryAccount().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link AccountInputType }
+	 * 
+	 * 
+	 */
+	public List<AccountInputType> getInquiryAccount() {
+		if (inquiryAccount == null) {
+			inquiryAccount = new ArrayList<AccountInputType>();
+		}
+		return this.inquiryAccount;
+	}
 
 }

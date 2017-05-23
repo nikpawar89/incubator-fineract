@@ -18,7 +18,10 @@
  */
 package org.apache.fineract.infrastructure.creditbureau.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,42 +29,42 @@ import org.apache.fineract.infrastructure.core.api.JsonCommand;
 import org.apache.fineract.infrastructure.core.domain.AbstractPersistableCustom;
 
 @Entity
-@Table(name="m_creditbureau_configuration")
-public class CreditBureauConfiguration extends AbstractPersistableCustom<Long> 
-{
+@Table(name = "m_creditbureau_configuration")
+public class CreditBureauConfiguration extends AbstractPersistableCustom<Long> {
+	@Column(name = "configkey")
+	private String configkey;
 
-    private String configkey;
-    
-    private String value;
-    
-    private String description;
-    
-    @OneToOne
-    private OrganisationCreditBureau organisation_creditbureau;
-    
-    public CreditBureauConfiguration()
-    {
-        
-    }
-    
-    public CreditBureauConfiguration(String configkey,String value,String description,OrganisationCreditBureau organisation_creditbureau)
-    {
-        this.configkey=configkey;
-        this.value=value;
-        this.description=description;
-        this.organisation_creditbureau=organisation_creditbureau;
-        
-    }
-    
-    public CreditBureauConfiguration fromJson(JsonCommand command,OrganisationCreditBureau organisation_creditbureau)
-    {
-        final String configkey=command.stringValueOfParameterNamed("configkey");
-        final String value=command.stringValueOfParameterNamed("value");
-        final String description=command.stringValueOfParameterNamed("description");
-        
-        return new CreditBureauConfiguration(configkey,value,description,organisation_creditbureau);
-        
-    }
+	@Column(name = "value")
+	private String value;
+
+	@Column(name = "description")
+	private String description;
+
+	@ManyToOne
+	@JoinColumn(name = "organisation_creditbureau_id")
+	private OrganisationCreditBureau organisationCreditbureau;
+
+	public CreditBureauConfiguration() {
+
+	}
+
+	public CreditBureauConfiguration(String configkey, String value, String description,
+			OrganisationCreditBureau organisationCreditbureau) {
+		this.configkey = configkey;
+		this.value = value;
+		this.description = description;
+		this.organisationCreditbureau = organisationCreditbureau;
+
+	}
+
+	public CreditBureauConfiguration fromJson(JsonCommand command, OrganisationCreditBureau organisation_creditbureau) {
+		final String configkey = command.stringValueOfParameterNamed("configkey");
+		final String value = command.stringValueOfParameterNamed("value");
+		final String description = command.stringValueOfParameterNamed("description");
+
+		return new CreditBureauConfiguration(configkey, value, description, organisation_creditbureau);
+
+	}
 
 	public String getConfigkey() {
 		return this.configkey;
@@ -88,13 +91,11 @@ public class CreditBureauConfiguration extends AbstractPersistableCustom<Long>
 	}
 
 	public OrganisationCreditBureau getOrganisation_creditbureau() {
-		return this.organisation_creditbureau;
+		return this.organisationCreditbureau;
 	}
 
 	public void setOrganisation_creditbureau(OrganisationCreditBureau organisation_creditbureau) {
-		this.organisation_creditbureau = organisation_creditbureau;
+		this.organisationCreditbureau = organisation_creditbureau;
 	}
-    
-    
-    
+
 }
